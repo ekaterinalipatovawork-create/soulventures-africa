@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT.parent / 'source/home-current-figma.tsx'
+SOURCE = ROOT / 'reference/home-current-figma.tsx'
 code = SOURCE.read_text()
 out = ROOT / 'src/design'
 out.mkdir(exist_ok=True)
@@ -19,9 +19,9 @@ for name, url in assets:
     ext = url.rsplit('.', 1)[1]
     path = ROOT / 'public/assets/figma' / (name+'.'+ext)
     if ext != 'svg':
-        im = Image.open(path)
+        im = Image.open(path if path.exists() else path.with_suffix('.webp'))
         dest = path.with_suffix('.webp')
-        im.save(dest, 'WEBP', quality=92, method=6, lossless=im.mode in ('RGBA','LA'))
+        if not dest.exists(): im.save(dest, 'WEBP', quality=92, method=6, lossless=im.mode in ('RGBA','LA'))
         ext = 'webp'
         size = list(im.size)
     else:
@@ -35,14 +35,11 @@ for name, url in assets:
 fontdir = ROOT/'public/assets/fonts'
 fontdir.mkdir(exist_ok=True)
 fontcss=[]
-fontsource=(ROOT.parent/'src/components/generated/AlbumFonts.css').read_text()
-for block in re.findall(r'@font-face\s*\{(.*?)\}',fontsource,re.S):
-    family=re.search(r"font-family:\s*'([^']+)'",block).group(1)
-    data=re.search(r'base64,([^)]*)',block).group(1)
-    (fontdir/(family+'.ttf')).write_bytes(base64.b64decode(data))
-    fontcss.append(f'@font-face{{font-family:{family};font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/{family}.ttf) format("truetype")}}')
-(fontdir/'Inter.woff2').write_bytes((ROOT.parent/'assets/fonts/inter-cyrillic.woff2').read_bytes())
+for family,weight in [('Caveat',400),('Oswald',700)]:
+    fontcss.append(f'@font-face{{font-family:{family};font-style:normal;font-weight:{weight};font-display:swap;src:url(/assets/fonts/{family}.ttf) format("truetype")}}')
 fontcss.append('@font-face{font-family:Inter;font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter.woff2) format("woff2")}')
+fontcss.append('@font-face{font-family:Inter;font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin.woff2) format("woff2");unicode-range:U+0000-024F}')
+fontcss.append('@font-face{font-family:Oswald;font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/Oswald-medium.ttf) format("truetype")}')
 (ROOT/'src/fonts.css').write_text('\n'.join(fontcss))
 
 simple={
@@ -66,6 +63,7 @@ props={'w':'width','h':'height','size':'width|height','left':'left','right':'rig
  'm':'margin','mx':'margin-left|margin-right','my':'margin-top|margin-bottom','mt':'margin-top','mb':'margin-bottom','ml':'margin-left','mr':'margin-right'}
 def val(v):
     v=v.replace('_',' ')
+    if 'calc(' in v:v=re.sub(r'(?<=[\d%\)])([+-])(?=[\d.(])',r' \1 ',v)
     return re.sub(r'var\(--#[^,]+,([^)]*)\)',r'\1',v)
 unknown=set()
 def declaration(c):
@@ -116,8 +114,16 @@ for idx,start in enumerate(starts):
     # Add non-blocking media and preserve eager hero/poster load.
     markup=re.sub(r'<img alt=""', '<img alt="" decoding="async" loading="lazy"',markup)
     if names[idx]=='HeroScene':markup=markup.replace('loading="lazy"','loading="eager" fetchPriority="high"')
+    if names[idx]=='HeroScene': markup=markup.replace('data-node-id="22:232"','data-node-id="22:232" role="heading" aria-level={1}')
     used=[a for a,_ in assets if re.search(r'\{'+a+r'\}',markup)]
-    body='import { '+', '.join(used)+' } from "./assets";\n'if used else ''
+    if names[idx]=='HeroScene':
+        markup=re.sub(r'<img[^>]*src=\{imgHero1WebmHero1Mp4\}[^>]*/>', '<LazyVideo src="/assets/video/hero-1.mp4" poster={imgHero1WebmHero1Mp4} eager label="Африка в движении"/>',markup)
+    if names[idx]=='CinematicScene':
+        markup=re.sub(r'<img[^>]*src=\{imgAutoplayMutedLoopPlaysinline\}[^>]*/>', '<LazyVideo src="/assets/video/dolphins.mp4" poster={imgAutoplayMutedLoopPlaysinline} label="Дельфины в Индийском океане"/>',markup)
+        markup=re.sub(r'(<div[^>]*data-node-id="247:2"[^>]*)/>', r'\1><LazyVideo src="/assets/video/giraffe.mp4" poster="/assets/lodge/giraffe-poster.webp" label="Жираф на сафари"/></div>',markup)
+    if names[idx]=='FilmScene':
+        markup=re.sub(r'<img[^>]*src=\{imgPreviewHero2Mp40010500ExactFrame\}[^>]*/>', '<LazyVideo src="/assets/video/hero-2.mp4" poster={imgPreviewHero2Mp40010500ExactFrame} label="Travel film Soul Ventures Africa"/>',markup)
+    body=('import { LazyVideo } from "../LazyVideo";\n'if '<LazyVideo' in markup else '')+('import { '+', '.join(used)+' } from "./assets";\n'if used else '')
     (out/(names[idx]+'.tsx')).write_text(body+'export function '+names[idx]+'(){return (\n'+markup+'\n);}\n')
     node=re.search(r'data-node-id="([^"]+)"',markup).group(1)
     metadata.append(dict(component=names[idx],nodeId=node))
@@ -129,7 +135,7 @@ for idx,start in enumerate(starts):
     markup='\n'.join(lines[start:end+1])
     paragraphs=[]
     for p in re.findall(r'<p\b[^>]*>(.*?)</p>',markup,re.S):
-        p=re.sub(r'<[^>]*>','',p);p=p.replace('{` `}',' ');p=re.sub(r'\s+',' ',p).strip()
+        p=re.sub(r'<[^>]*>','',p);p=re.sub(r'\{`(.*?)`\}',r'\1',p,flags=re.S);p=re.sub(r'\s+',' ',p).strip()
         if p:paragraphs.append(p)
     pics=list(dict.fromkeys(re.findall(r'src=\{(\w+)\}',markup)))
     pics=[p for p in pics if any(a['name']==p and a['size'] for a in assetmeta)]
