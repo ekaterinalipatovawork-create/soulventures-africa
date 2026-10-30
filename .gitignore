@@ -7,3 +7,5 @@ playwright-report/
 .env*
 !.env.example
 public/assets/figma/*.png
+public/assets/hotels/*.png
+*.tsbuildinfo
