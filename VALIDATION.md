@@ -1,59 +1,47 @@
 # Implementation and verification
 
-## Source and design
+## Current page and sources
 
-Figma file `0WM1APchlt7hbW9ET0zC46`, page `13:2`, main frame `13:3` (Desktop / 1440).
+React / TypeScript homepage from Figma file `0WM1APchlt7hbW9ET0zC46`, page `13:2`, main frame `13:3` (Desktop / 1440). Existing static compositions preserve exported geometry, typography, separate photographs and SVG assets. `src/asset-manifest.json` records the original 83 exports, and `reference/home-current-figma.tsx` preserves the inspected design context. `scripts/import-figma.py` can regenerate those original scenes with Pillow and the local assets; it does not replace the later interactive sections.
 
-Static compositions preserve the exported node geometry, palette, typography, individual media and SVG assets. `src/design-scenes.json` maps scenes to Figma node IDs; `src/asset-manifest.json` records the 83 original Figma exports. `reference/home-current-figma.tsx` is the inspected design context, not runtime code. `scripts/import-figma.py` regenerates the native CSS and scene components from this reference and the local assets (requires Pillow). It does not fetch replacement photography.
+- Hotels: eight selected photos from source frame `339:244`. The user removed the sunset/tree AndBeyond photo (`339:249`) and the pool/elephants Four Seasons photo (`339:251`). Node IDs and dimensions are in `hotel-photos.ts`; sources are in `reference/hotel-source-additions.json`.
+- Lodge album: six photos and three real videos in three tracks. The sunset is the exact Figma export `339:241`; flamingos are `339:223`. The middle video is the supplied `dji_export_20251225_221113_1766689873271_editor.MP4`, optimized to 1080×1920 H.264, 30 fps, approximately 6.8 MB, without removing footage or changing colors. Its poster is from second 2 of that clip. See `reference/lodge-media-update.json`.
+- First Africa: four native Figma states consolidated into one text/photo sequence.
+- Reviews: user-approved identity/route/year placeholders retained; no fabricated customer names.
+- Final photo block: six exact exports from `342:212`, labelled `342:213`, “01 / Главная / Путешествие в Африку подарит вам лучшие впечатления”. Source mapping and full dimensions are in `floating-photos.json` and `reference/floating-africa-source.json`.
 
-Hotel gallery now uses all ten photographs currently present in source frame `339:244`: the original four network photos plus the pool with a giraffe, AndBeyond Serengeti Under Canvas, Serval Wildlife, AndBeyond Mnemba Island, Ngorongoro Lodge and Four Seasons Serengeti. `src/sections/hotel-photos.ts` maps each image to its source node; `reference/hotel-source-additions.json` records the six newly exported files. The four separate “First time in Africa” frames are intentionally consolidated into one sequence. Orphan design cards outside their parent sections are not repeated as extra website sections.
+At the user's request, the yacht photo chronicle (`#chronicle`, including 01 / 06 and the progress line) is no longer rendered. The previous Grouptours falling-photo spread is also replaced, rather than appended as another adjacent gallery. Their source files remain available; no Figma nodes were deleted or modified.
 
-Section 09 follows the user's explicit clarification: `gallery-after-map/gallery.html`, rather than the three-image lodge composition currently visible in Figma. It contains six photos and three videos in three tracks. The latest change replaces the first lion photo with the exact sunset export at Figma node `339:241`, replaces the left giraffe video with flamingos at `339:223`, and replaces the middle dolphin photo with the newly supplied DJI clip. Source mapping is in `reference/lodge-media-update.json`. All media remains separate. No Figma frame was modified during implementation.
+Runtime assets are local. Temporary Figma download URLs are provenance only. No new photography was generated and no reference-site photographs were reused.
 
-Videos are the supplied giraffe/elephant clips, the project's dolphin clip and the site's existing `hero-1.mp4` / `hero-2.mp4`. Dolphin footage is transcoded to H.264, 30 fps, 960 px wide for delivery; content is unchanged. All videos are muted, looping, inline and play automatically on approaching the viewport. They pause outside it. Reduced-motion users receive still posters.
+## Current motion
 
-Review names, route and year remain the user-approved placeholders from Figma. No fabricated customer identities were added.
+Four desktop pins: hotels, dolphin expansion, First Africa and photo stories. GSAP ScrollTrigger follows native page progress with reversible timelines and cleanup on media-query changes; no wheel or touch cancellation and no permanent page scroll lock.
 
-## Scroll behavior
+- Hotels: each new photo rises over the previous print with a slight alternating tilt.
+- Lodge: side lanes move up and the middle lane down. The same dolphin video element expands into the viewport, then the unchanged trust block rises over it. No clone, seek, reparenting or media replacement occurs during this transition. Mobile keeps all nine materials in normal flow with a small unpinned emphasis; reduced motion removes pinning and scaling.
+- First Africa: four synchronized text/photo states with separate text fades.
+- Photo stories: individual sequential appearances; mobile has individual scroll progress.
+- Floating Africa: one vertical strip on sky blue `#59B5EE`, over a large cream “АФРИКА”. CSS animation moves the photos upward continuously without scrolling. Three identical tracks provide a seamless loop even on tall narrow screens; only the first copy is exposed to accessibility tools. Explicit intrinsic image sizes stabilize the loop before loading. IntersectionObserver and page visibility pause it offscreen or in a background tab. Reduced motion shows six originals in a static strip. This section follows the final CTA and precedes the footer; it has no pin, scroll counter or progress bar.
 
-- Hotels: ten source photos. Following the restaurant spread at https://ibicheskiy.ru/uzbekistan, each next photograph rises vertically over the held previous photograph with a slight alternating tilt. There is no horizontal side exit. Reverse scrolling unstacks the same photographs.
-- Lodge album: side tracks move up, middle track moves down. On desktop the same dolphin video element expands from its layout slot to the viewport, then the unchanged Trust section slides over it from below. Progress is fully reversible; no clone, portal, media replacement or seek is used. Its layout slot remains stable while the frame changes size; `object-fit: cover` preserves video proportions. Mobile retains all nine materials in normal flow with a smaller unpinned video emphasis. Reduced motion removes the zoom and pin.
-- First Africa: one pinned section, four synchronized text/photo states. Text fades out before the next text fades in.
-- Chronicle: all six source creatives move vertically from bottom to top.
-- Photo stories: four individually staged appearances. On mobile each image has its own reversible scroll progress.
+Other videos use the existing source hero clips and supplied giraffe/elephant footage. They are muted, inline, looping, have real posters and load near the viewport. External source footage is never substituted with a random still.
 
-GSAP ScrollTrigger uses native page scrolling; there is no wheel/touch cancellation or body scroll lock. Five desktop pins and three album tracks share GSAP's scheduler. Timelines are reverted on media-query changes and unmount. Fonts and loaded images trigger a debounced refresh. Mobile and reduced-motion layouts expose all content without long pinned sequences.
+## Verification
 
-## Checks
+`npm run build`: TypeScript and Vite production bundle.
 
-`npm run build`: TypeScript and production Vite build.
+`npm test`: browser checks for reversible pin lifecycles, hotel stacking, opposing lanes, silent autoplay, continuous dolphin playback and DOM identity, fullscreen geometry, overlay/reverse/release, all original asset URLs, media decoding, mobile widths, resize cleanup, reduced motion, deep links, dialog dismissal, removal of the yacht chronicle and autonomous photo movement while scrollY remains unchanged. The floating-loop test also checks sufficient content height on mobile and static original content under reduced motion.
 
-`npm test`: Google Chrome (Chromium engine) and WebKit browser suites covering forward/reverse progress, five pin lifecycles, vertical film direction, separate photo-story phases, opposite album directions, real muted autoplay, all 83 local asset URLs, all ten source hotel images decoding and vertical stacking direction, fast wheel exit, mobile layout, widths 375/768/1024/1440, resize cleanup, reduced motion, deep links and closing the request dialog with Escape.
+Browser projects use installed Google Chrome and Playwright WebKit with Playwright 1.56.1, compatible with this computer's macOS 14. WebKit is the Safari engine; the installed Safari application, physical trackpad and physical iPhone were not separately tested. No measured FPS or Core Web Vitals score is claimed.
 
-Desktop 1440 compositions were also visually inspected against Figma exports, including album heading wrapping, the hotel photo stack, travel story, chronicle and reviews. Mobile gallery was visually inspected at 390 px.
-
-WebKit is the Safari rendering engine, not the installed Safari application. Tests use Playwright 1.56.1 because its bundled browser supports this computer's macOS 14. Physical trackpad hardware and an actual iPhone were not tested. No measured 60 FPS or Core Web Vitals score is claimed.
-
-The request dialog reuses the existing Bitrix24 form configuration. External form submission was not performed; no test lead was sent. The form has a retry/contact fallback if its external script is unavailable. No live deployment or domain change is included.
+The request dialog reuses the existing Bitrix24 configuration, with retry/contact fallback. No real lead was submitted. No public deployment or domain change was performed.
 
 ## Run
 
 `npm ci`
 
-`npm run dev` (http://127.0.0.1:5190)
+`npm run dev` — http://127.0.0.1:5190
 
-`npx playwright install chrome webkit` once before `npm test`.
+`npx playwright install chrome webkit` before the first `npm test`.
 
-`npm run build` produces `dist/`; deploy that directory using a static host. Runtime assets are local; temporary Figma export URLs in the reference/manifest are provenance only.
-
-Hotel follow-up: updated from the latest Figma source and the user-selected restaurant reference. Original source image proportions are retained on mobile, with no horizontal page overflow.
-
-Dolphin transition checks verify the exact source replacements, nine separate gallery items, silent autoplay, fullscreen geometry, video DOM identity, no additional loadstart event, ongoing playback, next-section overlay, reverse restoration, release into the following content, mobile width and reduced-motion cleanup. The new source clip is optimized from approximately 80 MB to 6.8 MB without removing footage.
-
-## Final falling-photo spread
-
-`FallingPhotosSection` follows the existing final CTA and precedes the footer. All five images are exact exports from `342:225` (Grouptours impressions); per-image node IDs remain in the DOM and export URLs are recorded in `reference/falling-photos-source.json`. Three large photographs are paired with two smaller portrait prints. Scroll-driven translation and a light tilt hold the portrait prints as the next large frame moves underneath, following the referenced Madagascar/Mauritius route-selection spread. No photos, tour cards, prices or dates from the reference site are reused. The background and typography use the existing Soul Ventures system.
-
-The two new ScrollTriggers have scrubbed, reversible progress and no additional page pin or wheel interception. Touch screens use a smaller travel distance; reduced motion leaves static photos. Tests cover section order after the final CTA, all five node IDs and image decoding, forward/reverse translation, mobile width, reduced-motion cleanup and footer access in Chrome and WebKit.
-
-Hotel selection follow-up: the user removed the AndBeyond sunset/tree frame (`339:249`) and the Four Seasons pool/elephants frame (`339:251`) from the live hotel gallery. Eight photos remain; scroll duration and stacking are derived from that list. Original source files and Figma nodes are preserved.
+`npm run build` creates `dist/` for a static host.

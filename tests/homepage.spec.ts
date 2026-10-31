@@ -41,7 +41,7 @@ async function alphas(page: Page, selector: string) {
       els.map((el) => Number(getComputedStyle(el).opacity)),
     );
 }
-test("desktop: reversible pinned sequences, vertical film and staggered stories", async ({
+test("desktop: reversible pinned sequences and staggered stories", async ({
   page,
 }) => {
   const errors: string[] = [];
@@ -50,8 +50,8 @@ test("desktop: reversible pinned sequences, vertical film and staggered stories"
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(
     1440,
   );
-  await expect(page.locator(".pin-spacer")).toHaveCount(5);
-  for (const id of ["hotels", "first-africa", "chronicle", "photo-stories"]) {
+  await expect(page.locator(".pin-spacer")).toHaveCount(4);
+  for (const id of ["hotels", "first-africa", "photo-stories"]) {
     await phase(page, id, 0.05);
     await phase(page, id, 0.95);
     await phase(page, id, 0.05);
@@ -59,16 +59,7 @@ test("desktop: reversible pinned sequences, vertical film and staggered stories"
       Number(await page.locator("#" + id).getAttribute("data-progress")),
     ).toBeLessThan(0.07);
   }
-  await phase(page, "chronicle", 0.05);
-  const initial = await page
-    .locator(".vertical-film")
-    .evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).m42);
-  await phase(page, "chronicle", 0.8);
-  expect(
-    await page
-      .locator(".vertical-film")
-      .evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).m42),
-  ).toBeLessThan(initial - 1000);
+  await expect(page.locator("#chronicle")).toHaveCount(0);
   await phase(page, "first-africa", 0.1);
   let a = await alphas(page, ".first-step-copy");
   expect(a[0]).toBeGreaterThan(0.9);
@@ -154,7 +145,7 @@ test("mobile and reduced motion: content stays accessible without pin traps", as
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(
     375,
   );
-  await expect(page.locator(".chronicle-shot")).toHaveCount(6);
+  await expect(page.locator("#chronicle")).toHaveCount(0);
   await expect(page.locator(".first-step")).toHaveCount(4);
   await page.locator('[data-action="request"]').first().click();
   await expect(page.locator("dialog")).toBeVisible();
@@ -170,8 +161,8 @@ test("mobile and reduced motion: content stays accessible without pin traps", as
       await page.evaluate(() => document.documentElement.scrollWidth),
     ).toBe(width);
   }
-  await page.goto("/#chronicle");
-  await expect(page.locator("#chronicle")).toBeInViewport();
+  await page.goto("/#first-africa");
+  await expect(page.locator("#first-africa")).toBeInViewport();
 });
 
 test("source assets exist locally and deep-link resize restores pinned state", async ({
@@ -189,12 +180,12 @@ test("source assets exist locally and deep-link resize restores pinned state", a
     expect(response.status(), asset.file).toBe(200);
     expect(Number(response.headers()["content-length"])).toBeGreaterThan(0);
   }
-  await page.goto("/#chronicle");
+  await page.goto("/#first-africa");
   await page.waitForTimeout(700);
-  await expect(page.locator("#chronicle .pin-stage")).toBeInViewport();
+  await expect(page.locator("#first-africa .pin-stage")).toBeInViewport();
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.waitForTimeout(300);
-  await expect(page.locator(".pin-spacer")).toHaveCount(5);
+  await expect(page.locator(".pin-spacer")).toHaveCount(4);
   await phase(page, "hotels", 0.5);
   await expect(page.locator("#hotels img")).toHaveCount(8);
   await page.locator("#hotels img").evaluateAll((images) =>
@@ -217,7 +208,7 @@ test("source assets exist locally and deep-link resize restores pinned state", a
   await expect(page.locator(".pin-spacer")).toHaveCount(0);
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.waitForTimeout(300);
-  await expect(page.locator(".pin-spacer")).toHaveCount(5);
+  await expect(page.locator(".pin-spacer")).toHaveCount(4);
 });
 
 test("hotels: eight selected Figma photos rise vertically over the previous photograph", async ({

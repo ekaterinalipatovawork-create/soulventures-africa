@@ -14,10 +14,9 @@ import {
 } from "./sections/StaticSections";
 import { LodgeAlbumSection } from "./sections/LodgeAlbumSection";
 import { FirstTimeAfricaSection } from "./sections/FirstTimeAfricaSection";
-import { PhotoChronicleSection } from "./sections/PhotoChronicleSection";
 import { PhotoStoriesSection } from "./sections/PhotoStoriesSection";
 import { HotelGallerySection } from "./sections/HotelGallerySection";
-import { FallingPhotosSection } from "./sections/FallingPhotosSection";
+import { FloatingAfricaSection } from "./sections/FloatingAfricaSection";
 import { useMediaRefresh } from "./animation/useScrollScene";
 export function App() {
   useMediaRefresh();
@@ -38,12 +37,11 @@ export function App() {
           <TrustSection />
         </LodgeAlbumSection>
         <FirstTimeAfricaSection />
-        <PhotoChronicleSection />
         <FilmSection />
         <PhotoStoriesSection />
         <ReviewsSection />
         <ClosingSection />
-        <FallingPhotosSection />
+        <FloatingAfricaSection />
       </main>
       <FooterSection />
       <UI />

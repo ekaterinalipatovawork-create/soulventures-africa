@@ -129,5 +129,5 @@ test("mobile and reduced motion retain all nine materials and the next section",
   await expect(page.locator(".lodge-next")).toBeInViewport();
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.waitForTimeout(400);
-  await expect(page.locator(".pin-spacer")).toHaveCount(5);
+  await expect(page.locator(".pin-spacer")).toHaveCount(4);
 });

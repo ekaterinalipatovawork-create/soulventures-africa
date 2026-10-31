@@ -1,0 +1,32 @@
+{
+  "frame": "342:212",
+  "label": "342:213",
+  "name": "01 / Главная / Путешествие в Африку подарит вам лучшие впечатления",
+  "reference": "User screenshot 2026-10-31 at 05.29.45.png",
+  "images": [
+    {
+      "source": "https://www.figma.com/api/mcp/asset/40ce136d-63c5-4a00-a86d-a7350d6eb42e.png",
+      "file": "/assets/floating/journey1.webp"
+    },
+    {
+      "source": "https://www.figma.com/api/mcp/asset/b83f56f0-1e20-41e0-8d2a-181ed0eda662.png",
+      "file": "/assets/floating/journey2.webp"
+    },
+    {
+      "source": "https://www.figma.com/api/mcp/asset/05bbc97c-683b-4ed2-b7f5-ce79dc7f7f96.png",
+      "file": "/assets/floating/journey3.webp"
+    },
+    {
+      "source": "https://www.figma.com/api/mcp/asset/dd7a2f62-421d-42fe-bf40-6e055e12a7e2.png",
+      "file": "/assets/floating/journey7.webp"
+    },
+    {
+      "source": "https://www.figma.com/api/mcp/asset/f0d27bc9-66f9-4a79-8d81-02ac4bf7b925.png",
+      "file": "/assets/floating/journey8.webp"
+    },
+    {
+      "source": "https://www.figma.com/api/mcp/asset/719a45ba-4ad5-4fd7-b546-4d03d9af0f40.png",
+      "file": "/assets/floating/gt-hotel-g2.webp"
+    }
+  ]
+}

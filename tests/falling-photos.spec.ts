@@ -1,27 +1,33 @@
 import { test, expect } from "@playwright/test";
-test("falling photo spread follows final CTA, uses five source images and reverses", async ({
+test("floating Africa: yacht chronicle removed; original photos move upward with no scroll", async ({
   page,
 }) => {
-  await page.goto("/#falling-photos");
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto("/#floating-africa");
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(500);
-  const section = page.locator("#falling-photos");
-  await expect(section.locator("img")).toHaveCount(5);
+  await expect(page.locator("#chronicle")).toHaveCount(0);
+  await expect(page.locator(".chronicle-count")).toHaveCount(0);
+  await expect(page.locator("#falling-photos")).toHaveCount(0);
+  const block = page.locator("#floating-africa");
+  await expect(block).toHaveClass(/is-running/);
+  await expect(block.locator("h2")).toHaveText("АФРИКА");
   expect(
-    await section.evaluate((e) =>
+    await block.evaluate((e) =>
       e.previousElementSibling?.getAttribute("aria-label"),
     ),
   ).toBe("ClosingScene");
+  const originals = block.locator(".floating-africa-group").first();
+  await expect(originals.locator("img")).toHaveCount(6);
   expect(
-    await section.evaluate((e) => e.closest("main")?.nextElementSibling?.id),
-  ).toBe("contacts");
-  const ids = await section
-    .locator("[data-source-node]")
-    .evaluateAll((es) =>
-      es.map((e) => e.getAttribute("data-source-node")).sort(),
-    );
-  expect(ids).toEqual(["342:228", "342:230", "342:232", "342:233", "342:234"]);
-  await section.locator("img").evaluateAll((es) =>
+    await originals
+      .locator("[data-source-node]")
+      .evaluateAll((es) =>
+        es.map((e) => e.getAttribute("data-source-node")).sort(),
+      ),
+  ).toEqual(["342:215", "342:216", "342:217", "342:223", "342:224", "342:238"]);
+  await originals.locator("img").evaluateAll((es) =>
     Promise.all(
       es.map((e: HTMLImageElement) => {
         e.loading = "eager";
@@ -29,54 +35,52 @@ test("falling photo spread follows final CTA, uses five source images and revers
       }),
     ),
   );
-  const row = section.locator(".falling-photo-row").first();
-  const portrait = section.locator(".falling-photo-portrait").first();
-  const scroll = async (p: number) => {
-    await row.evaluate(
-      (e, p) =>
-        scrollTo(
-          0,
-          e.getBoundingClientRect().top +
-            scrollY -
-            innerHeight * 0.48 +
-            (e as HTMLElement).offsetHeight * 0.84 * p,
-        ),
-      p,
-    );
-    await page.waitForTimeout(250);
-  };
+  const track = block.locator(".floating-africa-track");
   const y = () =>
-    portrait.evaluate((e) => new DOMMatrix(getComputedStyle(e).transform).m42);
-  await scroll(0);
+    track.evaluate((e) => new DOMMatrix(getComputedStyle(e).transform).m42);
+  const scroll = await page.evaluate(() => scrollY);
   const start = await y();
-  await scroll(0.8);
-  await expect.poll(y).toBeGreaterThan(start + 200);
-  await scroll(0);
-  await expect.poll(y).toBeLessThan(start + 3);
+  await page.waitForTimeout(1000);
+  expect(await y()).toBeLessThan(start - 5);
+  expect(await page.evaluate(() => scrollY)).toBe(scroll);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(
     1440,
   );
   await page.locator("#contacts").scrollIntoViewIfNeeded();
   await expect(page.locator("#contacts")).toBeInViewport();
+  await page.evaluate(() => scrollTo(0, 0));
+  await expect(block).not.toHaveClass(/is-running/);
+  expect(errors).toEqual([]);
 });
-test("falling photo spread: mobile and reduced motion keep original media accessible", async ({
+test("floating Africa: mobile loop has no bottom gap and reduced motion exposes six originals", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/#falling-photos");
-  await expect(page.locator("#falling-photos img")).toHaveCount(5);
+  await page.goto("/#floating-africa");
+  await page.waitForTimeout(500);
+  const track = page.locator(".floating-africa-track");
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(
     390,
   );
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.waitForTimeout(300);
   expect(
+    await track.evaluate((e) => (e.getBoundingClientRect().height / 3) * 2),
+  ).toBeGreaterThan(
     await page
-      .locator(".falling-photo-portrait")
-      .evaluateAll((es) =>
-        es.every((e) => getComputedStyle(e).transform === "none"),
-      ),
-  ).toBeTruthy();
+      .locator("#floating-africa")
+      .evaluate((e) => e.getBoundingClientRect().height),
+  );
+  const before = await track.evaluate(
+    (e) => new DOMMatrix(getComputedStyle(e).transform).m42,
+  );
+  await page.waitForTimeout(800);
+  expect(
+    await track.evaluate(
+      (e) => new DOMMatrix(getComputedStyle(e).transform).m42,
+    ),
+  ).toBeLessThan(before - 3);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(track).toHaveCSS("animation-name", "none");
+  await expect(page.locator("#floating-africa img:visible")).toHaveCount(6);
   await page.locator("#contacts").scrollIntoViewIfNeeded();
   await expect(page.locator("#contacts")).toBeInViewport();
 });
