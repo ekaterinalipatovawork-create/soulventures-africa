@@ -5,7 +5,13 @@
   max-height: 1100px;
   overflow: clip;
   isolation: isolate;
-  background: #59b5ee;
+  background: linear-gradient(
+    180deg,
+    rgb(89 181 238 / 32%) 0%,
+    rgb(89 181 238 / 92%) 24%,
+    rgb(89 181 238 / 96%) 66%,
+    rgb(72 194 200 / 30%) 100%
+  );
   color: #fff6e8;
 }
 .floating-africa-word {
@@ -28,11 +34,25 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 54%;
+  left: 62%;
   transform: translateX(-50%);
   width: 32%;
   max-width: 480px;
   z-index: 1;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 14%,
+    #000 84%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 14%,
+    #000 84%,
+    transparent
+  );
 }
 .floating-africa-track {
   width: 100%;
@@ -75,7 +95,7 @@
   }
   .floating-africa-window {
     width: 44%;
-    left: 56%;
+    left: 64%;
   }
   .floating-africa-group {
     gap: 14px;
@@ -99,7 +119,8 @@
     position: relative;
     top: auto;
     bottom: auto;
-    left: 54%;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
   .floating-africa-track {
     animation: none;
