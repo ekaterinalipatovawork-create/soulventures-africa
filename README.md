@@ -6,7 +6,7 @@ Responsive React implementation of the approved Figma Desktop / 1440 homepage.
 
 `npm install` then `npm run dev`.
 
-`npm run build` creates the production bundle. `npm test` checks scroll interactions and media in Chromium and WebKit.
+`npm run build` creates the production bundle. `npm test` checks scroll interactions and media in Google Chrome and WebKit. Install those browsers with `npx playwright install chrome webkit` first.
 
 The implementation uses the existing React / TypeScript / CSS direction. GSAP ScrollTrigger drives five separate reversible editorial sequences. Assets are local exports from the supplied Figma file and user-provided source media; no generated or stock substitutes.
 
