@@ -12,11 +12,7 @@
       "ЛУЧШЕ ОДИН РАЗ",
       "УВИДЕТЬ АФРИКУ САМОМУ."
     ],
-    "photos": [
-      "imgHero1WebmHero1Mp4",
-      "imgSoulVenturesAfrica",
-      "imgWhatsApp"
-    ]
+    "photos": ["imgHero1WebmHero1Mp4", "imgSoulVenturesAfrica", "imgWhatsApp"]
   },
   {
     "component": "AlbumIntroScene",
@@ -34,13 +30,7 @@
       "Африка. Живое мгновение.",
       "Ⅱ"
     ],
-    "photos": [
-      "imgPhoto",
-      "imgPhoto1",
-      "imgPhoto2",
-      "imgPhoto3",
-      "imgPhoto4"
-    ]
+    "photos": ["imgPhoto", "imgPhoto1", "imgPhoto2", "imgPhoto3", "imgPhoto4"]
   },
   {
     "component": "CinematicScene",
@@ -52,9 +42,7 @@
       "Маршрут и темп строятся вокруг вас — а не вокруг готовой программы. Путешествие в Африку подарит вам лучшие впечатления в вашей жизни.",
       "Команда на месте, опытные гиды, понятный порядок сопровождения"
     ],
-    "photos": [
-      "imgAutoplayMutedLoopPlaysinline"
-    ]
+    "photos": ["imgAutoplayMutedLoopPlaysinline"]
   },
   {
     "component": "ElephantScene",
@@ -68,9 +56,7 @@
       "Иногда лучший план —",
       "задержаться ещё на десять минут"
     ],
-    "photos": [
-      "img1"
-    ]
+    "photos": ["img1"]
   },
   {
     "component": "HotelScene",
@@ -92,9 +78,7 @@
   {
     "component": "LooseHotelScene",
     "paragraphs": [],
-    "photos": [
-      "imgHotelPhoto4"
-    ]
+    "photos": ["imgHotelPhoto4"]
   },
   {
     "component": "AudienceScene",
@@ -116,12 +100,7 @@
       "Подскажем, когда лучше ехать",
       "и сколько дней оставить на океан."
     ],
-    "photos": [
-      "imgFamily",
-      "imgCouple",
-      "imgFriends",
-      "imgFirst"
-    ]
+    "photos": ["imgFamily", "imgCouple", "imgFriends", "imgFirst"]
   },
   {
     "component": "MapScene",
@@ -188,11 +167,7 @@
       "BOUTIQUE",
       "PREMIUM"
     ],
-    "photos": [
-      "imgHotelPhoto1",
-      "imgImg12102026191314188811",
-      "imgHotelPhoto2"
-    ]
+    "photos": ["imgHotelPhoto1", "imgImg12102026191314188811", "imgHotelPhoto2"]
   },
   {
     "component": "TrustScene",
@@ -202,7 +177,7 @@
       "Лучший сервис —",
       "тот, о котором",
       "не приходится думать.",
-      "{`НАША КОМАНДА НА МЕСТЕ • TANZANIA`}",
+      "НАША КОМАНДА НА МЕСТЕ • TANZANIA",
       "ПРИВАТНЫЙ",
       "САФАРИ-ДЖИП",
       "Только вы, ваш гид и ваш маршрут.",
@@ -231,10 +206,7 @@
       "с партнёрами в Танзании и Кении.",
       "Лицензированный туроператор на месте."
     ],
-    "photos": [
-      "img2",
-      "img3"
-    ]
+    "photos": ["img2", "img3"]
   },
   {
     "component": "FirstScene1",
@@ -251,9 +223,7 @@
       "РАССКАЖЕТЕ, КАКИМ ВИДИТЕ ПУТЕШЕСТВИЕ",
       "Что хочется увидеть, сколько дней есть и с кем едете. Учтём пожелания и подскажем, что действительно стоит включить в маршрут."
     ],
-    "photos": [
-      "img4"
-    ]
+    "photos": ["img4"]
   },
   {
     "component": "FirstScene2",
@@ -270,9 +240,7 @@
       "ВИЗА И ДОКУМЕНТЫ",
       "Заранее объясним, какие документы понадобятся и что проверить перед вылетом."
     ],
-    "photos": [
-      "img03"
-    ]
+    "photos": ["img03"]
   },
   {
     "component": "FirstScene3",
@@ -289,9 +257,7 @@
       "СОБЕРЁМ САФАРИ, ОКЕАН И ОТЕЛИ",
       "Подберём национальные парки, формат сафари, проверенные отели и пляжи. Вам не придётся самостоятельно сравнивать десятки вариантов."
     ],
-    "photos": [
-      "img04"
-    ]
+    "photos": ["img04"]
   },
   {
     "component": "FirstScene4",
@@ -308,15 +274,11 @@
       "ВСТРЕЧА В АФРИКЕ",
       "Согласуем прилёт, трансфер и первые дни, чтобы вы спокойно начали путешествие."
     ],
-    "photos": [
-      "img05"
-    ]
+    "photos": ["img05"]
   },
   {
     "component": "ChronicleScene",
-    "paragraphs": [
-      "01 / 06"
-    ],
+    "paragraphs": ["01 / 06"],
     "photos": [
       "imgPhotoToursGallery2",
       "imgPhotoToursGallery3",
@@ -337,9 +299,7 @@
       "Вот ради этого момента",
       "и едут так далеко."
     ],
-    "photos": [
-      "imgPreviewHero2Mp40010500ExactFrame"
-    ]
+    "photos": ["imgPreviewHero2Mp40010500ExactFrame"]
   },
   {
     "component": "PhotoStoriesScene",
@@ -353,12 +313,7 @@
       "То, что не помещается в программу тура.",
       "ПАМЯТНЫЕ МГНОВЕНИЯ"
     ],
-    "photos": [
-      "img6",
-      "img02",
-      "img7",
-      "img8"
-    ]
+    "photos": ["img6", "img02", "img7", "img8"]
   },
   {
     "component": "ReviewsScene",
@@ -378,24 +333,18 @@
       "Отдельное спасибо за то, что всё было продумано до мелочей: водичка холодная, еда божественная, пледик мягонький. В общем, вы лучшие!",
       "[ИМЯ] · [МАРШРУТ] · [ГОД]"
     ],
-    "photos": [
-      "img9",
-      "img10",
-      "imgFriends"
-    ]
+    "photos": ["img9", "img10", "imgFriends"]
   },
   {
     "component": "ClosingScene",
     "paragraphs": [
       "Отправься",
-      "в Африку {` с нами`}",
+      "в Африку с нами",
       "Расскажите, что хотите увидеть.",
       "Обсудим сроки, маршрут и бюджет.",
       "Обсудить путешествие"
     ],
-    "photos": [
-      "img11"
-    ]
+    "photos": ["img11"]
   },
   {
     "component": "FooterScene",
@@ -403,7 +352,7 @@
       "КОНТАКТЫ",
       "+255750408232",
       "info@soulventuresafrica.com",
-      "{`WhatsApp Telegram`}",
+      "WhatsApp Telegram",
       "Отели",
       "Туры",
       "Отзывы",
@@ -417,19 +366,15 @@
       "e-mail: info@soulventuresafrica.com",
       "Карта и расположение",
       "Открыть карту",
-      "{`Согласие на обработку персональных данных `}",
-      "{`Политика в отношении обработки персональных данных `}",
-      "{`Согласие на новостную и рекламную рассылку `}"
+      "Согласие на обработку персональных данных",
+      "Политика в отношении обработки персональных данных",
+      "Согласие на новостную и рекламную рассылку"
     ],
-    "photos": [
-      "imgSoulVenturesAfrica"
-    ]
+    "photos": ["imgSoulVenturesAfrica"]
   },
   {
     "component": "LooseSingitaScene",
     "paragraphs": [],
-    "photos": [
-      "img01"
-    ]
+    "photos": ["img01"]
   }
 ]

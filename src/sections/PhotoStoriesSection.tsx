@@ -1,4 +1,88 @@
-import{useRef}from'react';import{gsap,pinConfig,useScrollScene}from'../animation/useScrollScene';import{MotionCanvas}from'../MotionCanvas';import{MobileEditorial}from'../DesignFrame';import{useViewport}from'../Viewport';import{PhotoStoriesScene}from'../design/PhotoStoriesScene';import './PhotoStoriesSection.css';
-export function PhotoStoriesSection(){const ref=useRef<HTMLElement>(null);const{mobile}=useViewport();useScrollScene(ref,({desktop,motion})=>{const section=ref.current!;section.classList.toggle('is-static',!desktop||!motion);if(!desktop||!motion)return;const cards=['255:3','255:7','255:11','255:15'].map(id=>section.querySelector('[data-node-id="'+id+'"]'));gsap.set(cards,{autoAlpha:0,y:140});const config=pinConfig(section,section.querySelector('.pin-stage')!,'photo-stories',2.8);const tl=gsap.timeline({scrollTrigger:{...config,onUpdate:self=>{config.onUpdate(self);section.dataset.active=String(Math.min(3,Math.floor(self.progress*4)));}}});cards.forEach((card,i)=>{tl.to(card,{autoAlpha:1,y:0,duration:.65,ease:'none'},i*.9);});tl.to({},{duration:.4});},[mobile]);
- return <section ref={ref} id="photo-stories" className="interactive-section photo-stories" data-sequence="photo-stories" aria-label="Памятные мгновения">{mobile?<MobileEditorial name="PhotoStoriesScene"/>:<div className="pin-stage"><MotionCanvas height={900}><PhotoStoriesScene/></MotionCanvas></div>}</section>;
+import { useRef } from "react";
+import { gsap, pinConfig, useScrollScene } from "../animation/useScrollScene";
+import { MotionCanvas } from "../MotionCanvas";
+import { MobileEditorial } from "../DesignFrame";
+import { useViewport } from "../Viewport";
+import { PhotoStoriesScene } from "../design/PhotoStoriesScene";
+import "./PhotoStoriesSection.css";
+export function PhotoStoriesSection() {
+  const ref = useRef<HTMLElement>(null);
+  const { mobile } = useViewport();
+  useScrollScene(
+    ref,
+    ({ desktop, motion }) => {
+      const section = ref.current!;
+      section.classList.toggle("is-static", !desktop || !motion);
+      if (!motion) return;
+      if (!desktop) {
+        section.querySelectorAll(".mobile-editorial img").forEach((image) => {
+          gsap.fromTo(
+            image,
+            { autoAlpha: 0, y: 40 },
+            {
+              autoAlpha: 1,
+              y: 0,
+              ease: "none",
+              scrollTrigger: {
+                trigger: image,
+                start: "top 95%",
+                end: "top 65%",
+                scrub: true,
+              },
+            },
+          );
+        });
+        return;
+      }
+      const cards = ["255:3", "255:7", "255:11", "255:15"].map((id) =>
+        section.querySelector('[data-node-id="' + id + '"]'),
+      );
+      gsap.set(cards, { autoAlpha: 0, y: 140 });
+      const config = pinConfig(
+        section,
+        section.querySelector(".pin-stage")!,
+        "photo-stories",
+        2.8,
+      );
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          ...config,
+          onUpdate: (self) => {
+            config.onUpdate(self);
+            section.dataset.active = String(
+              Math.min(3, Math.floor(self.progress * 4)),
+            );
+          },
+        },
+      });
+      cards.forEach((card, i) => {
+        tl.to(
+          card,
+          { autoAlpha: 1, y: 0, duration: 0.65, ease: "none" },
+          i * 0.9,
+        );
+      });
+      tl.to({}, { duration: 0.4 });
+    },
+    [mobile],
+  );
+  return (
+    <section
+      ref={ref}
+      id="photo-stories"
+      className="interactive-section photo-stories"
+      data-sequence="photo-stories"
+      aria-label="Памятные мгновения"
+    >
+      {mobile ? (
+        <MobileEditorial name="PhotoStoriesScene" />
+      ) : (
+        <div className="pin-stage">
+          <MotionCanvas height={900}>
+            <PhotoStoriesScene />
+          </MotionCanvas>
+        </div>
+      )}
+    </section>
+  );
 }

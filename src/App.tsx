@@ -1,3 +1,49 @@
-import {UI}from'./UI';import{HeroSection,AlbumIntroSection,CinematicSection,ElephantSection,AudienceSection,MapSection,TrustSection,FilmSection,ReviewsSection,ClosingSection,FooterSection}from'./sections/StaticSections';
-import{LodgeAlbumSection}from'./sections/LodgeAlbumSection';import{FirstTimeAfricaSection}from'./sections/FirstTimeAfricaSection';import{PhotoChronicleSection}from'./sections/PhotoChronicleSection';import{PhotoStoriesSection}from'./sections/PhotoStoriesSection';import{HotelGallerySection}from'./sections/HotelGallerySection';import{useMediaRefresh}from'./animation/useScrollScene';
-export function App(){useMediaRefresh();return <><a className="skip" href="#intro">К содержанию</a><main><HeroSection/><AlbumIntroSection/><CinematicSection/><ElephantSection/><HotelGallerySection/><AudienceSection/><MapSection/><LodgeAlbumSection/><TrustSection/><FirstTimeAfricaSection/><PhotoChronicleSection/><FilmSection/><PhotoStoriesSection/><ReviewsSection/><ClosingSection/></main><FooterSection/><UI/></>}
+import { UI } from "./UI";
+import {
+  HeroSection,
+  AlbumIntroSection,
+  CinematicSection,
+  ElephantSection,
+  AudienceSection,
+  MapSection,
+  TrustSection,
+  FilmSection,
+  ReviewsSection,
+  ClosingSection,
+  FooterSection,
+} from "./sections/StaticSections";
+import { LodgeAlbumSection } from "./sections/LodgeAlbumSection";
+import { FirstTimeAfricaSection } from "./sections/FirstTimeAfricaSection";
+import { PhotoChronicleSection } from "./sections/PhotoChronicleSection";
+import { PhotoStoriesSection } from "./sections/PhotoStoriesSection";
+import { HotelGallerySection } from "./sections/HotelGallerySection";
+import { useMediaRefresh } from "./animation/useScrollScene";
+export function App() {
+  useMediaRefresh();
+  return (
+    <>
+      <a className="skip" href="#intro">
+        К содержанию
+      </a>
+      <main>
+        <HeroSection />
+        <AlbumIntroSection />
+        <CinematicSection />
+        <ElephantSection />
+        <HotelGallerySection />
+        <AudienceSection />
+        <MapSection />
+        <LodgeAlbumSection />
+        <TrustSection />
+        <FirstTimeAfricaSection />
+        <PhotoChronicleSection />
+        <FilmSection />
+        <PhotoStoriesSection />
+        <ReviewsSection />
+        <ClosingSection />
+      </main>
+      <FooterSection />
+      <UI />
+    </>
+  );
+}

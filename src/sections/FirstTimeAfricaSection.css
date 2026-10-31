@@ -1,2 +1,170 @@
-.first-africa{background:#0E3E38;color:#FFF6E8}.first-title{position:absolute;left:42px;top:34px;font:700 90px/1.06 Oswald;letter-spacing:-1.35px}.first-title span{color:#59B5EE}.first-step-copy{position:absolute;left:50px;top:290px;width:570px;will-change:transform,opacity}.first-step-copy h3{font:700 29px/1.1 Oswald;max-width:520px;letter-spacing:-.4px;margin-bottom:24px}.first-step-copy p{font-size:19px;line-height:1.5;max-width:545px}.first-step-photo{position:absolute;left:750px;top:65px;width:610px;height:670px;padding:12px;background:white;rotate:-2.8deg;will-change:transform,opacity;overflow:hidden}.first-step-photo img{width:100%;height:100%;object-fit:cover;object-position:center}.first-note{position:absolute;left:50px;top:610px;width:560px;font:400 29px/1.12 Caveat;rotate:-3deg}.first-cta{position:absolute;left:50px;top:710px;background:#FFF6E8;color:#0E3E38;border-radius:30px;padding:18px 30px;font:700 22px/1.1 Oswald;min-width:360px}.first-africa.is-static{padding:48px}.first-africa.is-static .first-title,.first-africa.is-static .first-step-copy,.first-africa.is-static .first-step-photo,.first-africa.is-static .first-note,.first-africa.is-static .first-cta{position:relative;inset:auto}.first-africa.is-static .first-title{margin-bottom:48px}.first-africa.is-static .first-step{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin:64px 0}.first-africa.is-static .first-step-copy{width:auto}.first-africa.is-static .first-step-photo{width:100%;height:auto;aspect-ratio:1}.first-africa.is-static .first-note{margin:36px 0}.first-africa.is-static .first-cta{min-width:0}.first-africa.is-static .first-step-photo,.first-africa.is-static .first-step-copy{will-change:auto}
-@media(max-width:767px){.first-africa{padding:40px 22px}.first-africa .pin-stage{height:auto}.first-africa .motion-canvas{position:relative;left:0;top:0;transform:none!important;width:100%!important;height:auto!important}.first-africa .first-title,.first-africa .first-step-copy,.first-africa .first-step-photo,.first-africa .first-note,.first-africa .first-cta{position:relative;inset:auto;width:100%;will-change:auto}.first-africa .first-title{font-size:64px;margin-bottom:40px}.first-africa .first-step{display:grid;grid-template-columns:1fr;gap:26px;margin:45px 0}.first-africa .first-step-copy h3{font-size:28px}.first-africa .first-step-copy p{font-size:17px}.first-africa .first-step-photo{height:auto;aspect-ratio:4/5}.first-africa .first-note{font-size:26px;margin:45px 0 30px}.first-africa .first-cta{min-width:0;max-width:360px;font-size:20px}.first-africa.is-static{padding:40px 22px}.first-africa.is-static .first-step{grid-template-columns:1fr;gap:26px}}
+.first-africa {
+  background: #0e3e38;
+  color: #fff6e8;
+}
+.first-title {
+  position: absolute;
+  left: 42px;
+  top: 34px;
+  font: 700 90px/1.06 Oswald;
+  letter-spacing: -1.35px;
+}
+.first-title span {
+  color: #59b5ee;
+}
+.first-step-copy {
+  position: absolute;
+  left: 50px;
+  top: 290px;
+  width: 570px;
+  will-change: transform, opacity;
+}
+.first-step-copy h3 {
+  font: 700 29px/1.1 Oswald;
+  max-width: 520px;
+  letter-spacing: -0.4px;
+  margin-bottom: 24px;
+}
+.first-step-copy p {
+  font-size: 19px;
+  line-height: 1.5;
+  max-width: 545px;
+}
+.first-step-photo {
+  position: absolute;
+  left: 750px;
+  top: 65px;
+  width: 610px;
+  height: 670px;
+  padding: 12px;
+  background: white;
+  rotate: -2.8deg;
+  will-change: transform, opacity;
+  overflow: hidden;
+}
+.first-step-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.first-note {
+  position: absolute;
+  left: 50px;
+  top: 610px;
+  width: 560px;
+  font: 400 29px/1.12 Caveat;
+  rotate: -3deg;
+}
+.first-cta {
+  position: absolute;
+  left: 50px;
+  top: 710px;
+  background: #fff6e8;
+  color: #0e3e38;
+  border-radius: 30px;
+  padding: 18px 30px;
+  font: 700 22px/1.1 Oswald;
+  min-width: 360px;
+}
+.first-africa.is-static {
+  padding: 48px;
+}
+.first-africa.is-static .first-title,
+.first-africa.is-static .first-step-copy,
+.first-africa.is-static .first-step-photo,
+.first-africa.is-static .first-note,
+.first-africa.is-static .first-cta {
+  position: relative;
+  inset: auto;
+}
+.first-africa.is-static .first-title {
+  margin-bottom: 48px;
+}
+.first-africa.is-static .first-step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin: 64px 0;
+}
+.first-africa.is-static .first-step-copy {
+  width: auto;
+}
+.first-africa.is-static .first-step-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+}
+.first-africa.is-static .first-note {
+  margin: 36px 0;
+}
+.first-africa.is-static .first-cta {
+  min-width: 0;
+}
+.first-africa.is-static .first-step-photo,
+.first-africa.is-static .first-step-copy {
+  will-change: auto;
+}
+@media (max-width: 767px) {
+  .first-africa {
+    padding: 40px 22px;
+  }
+  .first-africa .pin-stage {
+    height: auto;
+  }
+  .first-africa .motion-canvas {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .first-africa .first-title,
+  .first-africa .first-step-copy,
+  .first-africa .first-step-photo,
+  .first-africa .first-note,
+  .first-africa .first-cta {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    will-change: auto;
+  }
+  .first-africa .first-title {
+    font-size: 64px;
+    margin-bottom: 40px;
+  }
+  .first-africa .first-step {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin: 45px 0;
+  }
+  .first-africa .first-step-copy h3 {
+    font-size: 28px;
+  }
+  .first-africa .first-step-copy p {
+    font-size: 17px;
+  }
+  .first-africa .first-step-photo {
+    height: auto;
+    aspect-ratio: 4/5;
+  }
+  .first-africa .first-note {
+    font-size: 26px;
+    margin: 45px 0 30px;
+  }
+  .first-africa .first-cta {
+    min-width: 0;
+    max-width: 360px;
+    font-size: 20px;
+  }
+  .first-africa.is-static {
+    padding: 40px 22px;
+  }
+  .first-africa.is-static .first-step {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}

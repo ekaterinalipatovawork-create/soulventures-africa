@@ -9,3 +9,6 @@ playwright-report/
 public/assets/figma/*.png
 public/assets/hotels/*.png
 *.tsbuildinfo
+
+tests/*.png
+tests/*.jpg
