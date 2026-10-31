@@ -33,8 +33,9 @@ export function App() {
         <HotelGallerySection />
         <AudienceSection />
         <MapSection />
-        <LodgeAlbumSection />
-        <TrustSection />
+        <LodgeAlbumSection>
+          <TrustSection />
+        </LodgeAlbumSection>
         <FirstTimeAfricaSection />
         <PhotoChronicleSection />
         <FilmSection />

@@ -2,7 +2,6 @@
   position: relative;
   background: #0e3e38;
   padding: 72px 3.888889vw;
-  overflow: clip;
 }
 .lodge-columns {
   display: grid;
@@ -11,12 +10,14 @@
   gap: 1.666667vw;
 }
 .lodge-lane {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.666667vw;
   will-change: transform;
 }
 .lodge-shot {
+  height: 100%;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -42,6 +43,7 @@
     gap: 12px;
   }
   .lodge-lane {
+    position: relative;
     gap: 12px;
   }
 }
@@ -50,9 +52,11 @@
     grid-template-columns: 1fr;
   }
   .lodge-lane {
+    position: relative;
     will-change: auto;
   }
-  .lodge-shot {
+  .lodge-slot,
+  .lodge-video-slot {
     max-height: 72svh;
   }
   .lodge-shot img,
@@ -62,6 +66,37 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .lodge-lane {
+    position: relative;
     will-change: auto;
   }
+}
+
+.lodge-journey {
+  position: relative;
+  background: #0e3e38;
+}
+.lodge-pin-stage {
+  position: relative;
+  overflow: clip;
+}
+.lodge-slot,
+.lodge-video-slot {
+  position: relative;
+  width: 100%;
+  flex: none;
+}
+.lodge-shot--hero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 20;
+}
+.has-film-transition .lodge-next {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100svh;
+  z-index: 10;
+  background: #071b3a;
 }

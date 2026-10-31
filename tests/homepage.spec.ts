@@ -50,7 +50,7 @@ test("desktop: reversible pinned sequences, vertical film and staggered stories"
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(
     1440,
   );
-  await expect(page.locator(".pin-spacer")).toHaveCount(4);
+  await expect(page.locator(".pin-spacer")).toHaveCount(5);
   for (const id of ["hotels", "first-africa", "chronicle", "photo-stories"]) {
     await phase(page, id, 0.05);
     await phase(page, id, 0.95);
@@ -194,7 +194,7 @@ test("source assets exist locally and deep-link resize restores pinned state", a
   await expect(page.locator("#chronicle .pin-stage")).toBeInViewport();
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.waitForTimeout(300);
-  await expect(page.locator(".pin-spacer")).toHaveCount(4);
+  await expect(page.locator(".pin-spacer")).toHaveCount(5);
   await phase(page, "hotels", 0.5);
   await expect(page.locator("#hotels img")).toHaveCount(10);
   await page.locator("#hotels img").evaluateAll((images) =>
@@ -217,7 +217,7 @@ test("source assets exist locally and deep-link resize restores pinned state", a
   await expect(page.locator(".pin-spacer")).toHaveCount(0);
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.waitForTimeout(300);
-  await expect(page.locator(".pin-spacer")).toHaveCount(4);
+  await expect(page.locator(".pin-spacer")).toHaveCount(5);
 });
 
 test("hotels: all ten Figma photos rise vertically over the previous photograph", async ({

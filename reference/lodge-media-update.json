@@ -1,0 +1,25 @@
+{
+  "sunset": {
+    "node": "339:241",
+    "sourceFrame": "03 / Здесь есть всё, чтобы почувствовать себя живым и счастливым",
+    "sourceName": "tours-card-2",
+    "source": "https://www.figma.com/api/mcp/asset/7d39cb34-9887-4eba-8768-c05c67906e0e.png",
+    "local": "/assets/lodge/sunset.webp",
+    "dimensions": [1200, 842]
+  },
+  "flamingos": {
+    "node": "339:223",
+    "sourceFrame": "SOURCE / tours / photos / 01 / Национальные парки Танзании",
+    "sourceName": "tours-tz-7 / Озеро Натрон",
+    "source": "https://www.figma.com/api/mcp/asset/efb1fc9b-ac9d-428d-86a1-c5c4e5dc4cd4.png",
+    "local": "/assets/lodge/flamingos.webp",
+    "dimensions": [640, 900]
+  },
+  "dolphins": {
+    "source": "dji_export_20251225_221113_1766689873271_editor.MP4",
+    "local": "/assets/video/dolphins-gallery.mp4",
+    "poster": "/assets/lodge/dolphins-gallery-poster.jpg",
+    "posterTimeSeconds": 2,
+    "delivery": "Same complete footage, 1080x1920 H.264, 30 fps, faststart, audio omitted for silent autoplay. No color grading."
+  }
+}
