@@ -1,4 +1,4 @@
-/** Every photograph currently present in the Figma source frame 339:244. */
+/** Curated photos from Figma source 339:244; two frames removed at user request. */
 export const hotelPhotos = [
   {
     name: "Lemala",
@@ -13,12 +13,6 @@ export const hotelPhotos = [
     alt: "Причал и океан у отеля Meliá",
   },
   {
-    name: "AndBeyond",
-    file: "andbeyond",
-    node: "339:249",
-    alt: "Лодж AndBeyond в вечернем свете",
-  },
-  {
     name: "",
     file: "pool-giraffe",
     node: "333:212",
@@ -29,12 +23,6 @@ export const hotelPhotos = [
     file: "under-canvas",
     node: "I91:313;92:317",
     alt: "Вид из палаточного лоджа на саванну",
-  },
-  {
-    name: "Four Seasons",
-    file: "four-seasons",
-    node: "339:251",
-    alt: "Бассейн Four Seasons с видом на слонов",
   },
   {
     name: "Serval Wildlife",

@@ -196,7 +196,7 @@ test("source assets exist locally and deep-link resize restores pinned state", a
   await page.waitForTimeout(300);
   await expect(page.locator(".pin-spacer")).toHaveCount(5);
   await phase(page, "hotels", 0.5);
-  await expect(page.locator("#hotels img")).toHaveCount(10);
+  await expect(page.locator("#hotels img")).toHaveCount(8);
   await page.locator("#hotels img").evaluateAll((images) =>
     Promise.all(
       images.map((image: HTMLImageElement) => {
@@ -220,12 +220,12 @@ test("source assets exist locally and deep-link resize restores pinned state", a
   await expect(page.locator(".pin-spacer")).toHaveCount(5);
 });
 
-test("hotels: all ten Figma photos rise vertically over the previous photograph", async ({
+test("hotels: eight selected Figma photos rise vertically over the previous photograph", async ({
   page,
 }) => {
   await ready(page);
   const photos = page.locator("#hotels .hotel-film-card");
-  await expect(photos).toHaveCount(10);
+  await expect(photos).toHaveCount(8);
   await expect(
     page.locator('#hotels [data-source-node="I91:321;92:317"]'),
   ).toHaveCount(1);
@@ -243,7 +243,7 @@ test("hotels: all ten Figma photos rise vertically over the previous photograph"
   expect(overlapping.z).toBeGreaterThan((await position(0)).z);
   expect((await position(0)).x).toBeGreaterThan(440);
   await phase(page, "hotels", 0.98);
-  expect((await position(9)).y).toBeLessThan(300);
+  expect((await position(7)).y).toBeLessThan(300);
   await phase(page, "hotels", 0.01);
   expect((await position(1)).y).toBeGreaterThan(1000);
   await page.setViewportSize({ width: 390, height: 844 });
@@ -251,5 +251,5 @@ test("hotels: all ten Figma photos rise vertically over the previous photograph"
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(
     390,
   );
-  await expect(page.locator("#hotels img")).toHaveCount(10);
+  await expect(page.locator("#hotels img")).toHaveCount(8);
 });
