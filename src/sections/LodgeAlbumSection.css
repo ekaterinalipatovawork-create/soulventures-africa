@@ -1,6 +1,6 @@
 .lodge-album {
   position: relative;
-  background: #0e3e38;
+  background: var(--sva-primary);
   padding: 72px 3.888889vw;
 }
 .lodge-columns {
@@ -73,7 +73,7 @@
 
 .lodge-journey {
   position: relative;
-  background: #0e3e38;
+  background: var(--sva-primary);
 }
 .lodge-pin-stage {
   position: relative;
@@ -98,5 +98,5 @@
   width: 100%;
   min-height: 100svh;
   z-index: 10;
-  background: #071b3a;
+  background: var(--sva-panel);
 }

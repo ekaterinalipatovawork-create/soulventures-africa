@@ -5,8 +5,13 @@
   max-height: 1100px;
   overflow: clip;
   isolation: isolate;
-  background: linear-gradient(180deg, #59b5ee 0%, #59b5ee 66%, #48c2c8 100%);
-  color: #fff6e8;
+  background: linear-gradient(
+    180deg,
+    var(--sva-surface-accent) 0%,
+    var(--sva-surface-accent) 66%,
+    var(--sva-surface-secondary) 100%
+  );
+  color: var(--sva-on-dark);
 }
 .floating-africa-word {
   position: absolute;

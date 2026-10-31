@@ -6,8 +6,8 @@ html {
 }
 body {
   margin: 0;
-  background: #fff6e8;
-  color: #17334a;
+  background: var(--sva-paper);
+  color: var(--sva-ink);
   font-family: Inter, Arial, sans-serif;
   overflow-x: clip;
 }
@@ -44,7 +44,7 @@ button {
 }
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid #48c2c8;
+  outline: 3px solid var(--sva-secondary);
   outline-offset: 5px;
 }
 .skip {
@@ -52,7 +52,7 @@ a:focus-visible {
   left: 16px;
   top: -100px;
   z-index: 1000;
-  background: #fff6e8;
+  background: var(--sva-paper);
   padding: 14px;
 }
 .skip:focus {
@@ -87,11 +87,11 @@ a:focus-visible {
   max-width: min(560px, calc(100vw - 32px));
   max-height: 90svh;
   padding: 0;
-  background: #fff6e8;
-  color: #17334a;
+  background: var(--sva-paper);
+  color: var(--sva-ink);
 }
 .dialog::backdrop {
-  background: #17334ab3;
+  background: var(--sva-ink-a70);
 }
 .dialog-content {
   padding: 48px 32px;
@@ -118,8 +118,8 @@ a:focus-visible {
 }
 .dialog [role="alert"] a,
 .dialog [role="alert"] button {
-  background: #0e3e38;
-  color: #fff6e8;
+  background: var(--sva-primary);
+  color: var(--sva-on-dark);
   padding: 15px;
 }
 .menu-dialog nav {
@@ -130,7 +130,7 @@ a:focus-visible {
 }
 .mobile-editorial {
   padding: 42px 22px;
-  background: #fff6e8;
+  background: var(--sva-paper);
   display: grid;
   gap: 24px;
 }
@@ -154,26 +154,26 @@ a:focus-visible {
 }
 .mobile-HeroScene,
 .mobile-ElephantScene {
-  background: #0e3e38;
-  color: #fff6e8;
+  background: var(--sva-primary);
+  color: var(--sva-on-dark);
 }
 .mobile-AlbumIntroScene,
 .mobile-FilmScene {
-  background: #59b5ee;
-  color: #17334a;
+  background: var(--sva-surface-accent);
+  color: var(--sva-ink);
 }
 .mobile-CinematicScene,
 .mobile-TrustScene {
-  background: #17334a;
-  color: #fff6e8;
+  background: var(--sva-ink);
+  color: var(--sva-on-dark);
 }
 .mobile-FooterScene {
-  background: #0e3e38;
-  color: #fff6e8;
+  background: var(--sva-primary);
+  color: var(--sva-on-dark);
 }
 .mobile-ClosingScene {
-  background: #17334a;
-  color: #fff6e8;
+  background: var(--sva-ink);
+  color: var(--sva-on-dark);
 }
 @media (prefers-reduced-motion: reduce) {
   *,

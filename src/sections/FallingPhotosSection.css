@@ -4,8 +4,8 @@
   grid-template-columns: 31% 1fr;
   gap: 2%;
   padding: 90px 4% 110px;
-  background: #17334a;
-  color: #fff6e8;
+  background: var(--sva-ink);
+  color: var(--sva-on-dark);
   overflow: clip;
 }
 .falling-photos-heading {
@@ -21,7 +21,7 @@
   letter-spacing: -0.035em;
 }
 .falling-photos h2 span {
-  color: #59b5ee;
+  color: var(--sva-accent);
 }
 .falling-photos-rows {
   min-width: 0;

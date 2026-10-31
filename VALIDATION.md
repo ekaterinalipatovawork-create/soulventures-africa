@@ -45,3 +45,11 @@ The request dialog reuses the existing Bitrix24 configuration, with retry/contac
 `npx playwright install chrome webkit` before the first `npm test`.
 
 `npm run build` creates `dist/` for a static host.
+
+## Separate warm palette copy
+
+`/heritage/` is a separate HTML entry using the exact same React components, typography, text, photos, videos and animation code as `/`. Its palette was sampled from the live `https://soulventuresafrica.ru/`: paper `#F5F4F3`, primary brown `#79593D`, terracotta `#AE3117`, body gray `#605E5E`, secondary brown `#815F41` and soft paper `#F7F5F3`. Background and foreground tokens are separate so white text becomes brown where a former blue surface becomes light paper.
+
+`src/palettes.css` preserves every original default color and selects only color values under `html[data-palette="heritage"]`. The default values of 4,071 existing CSS declarations were resolved and compared with the previous version: no differences. The original SVG files are untouched; 36 palette variants have identical non-color content, paths and dimensions. Photos and videos are shared byte-for-byte, with no filters or new color correction. `reference/heritage-palette.json` records the mapping; `scripts/create-heritage-palette.py` builds the themed assets and variables.
+
+Six additional checks passed in Google Chrome and WebKit: desktop and mobile node geometry/font/text/media equality, exact target colors, local SVG loading, the same pin sequences and autonomous photo motion. Both HTML entries build together. The original `/` entry remains in its original palette. Figma was not modified.

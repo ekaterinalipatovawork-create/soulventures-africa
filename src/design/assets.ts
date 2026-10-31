@@ -1,3 +1,4 @@
+import { paletteAsset } from "../palette";
 export const imgHero1WebmHero1Mp4 = "/assets/figma/imgHero1WebmHero1Mp4.webp";
 export const imgSoulVenturesAfrica = "/assets/figma/imgSoulVenturesAfrica.webp";
 export const imgWhatsApp = "/assets/figma/imgWhatsApp.webp";
@@ -48,52 +49,77 @@ export const img9 = "/assets/figma/img9.webp";
 export const img10 = "/assets/figma/img10.webp";
 export const img11 = "/assets/figma/img11.webp";
 export const img01 = "/assets/figma/img01.webp";
-export const imgGroup = "/assets/figma/imgGroup.svg";
-export const imgGroup1 = "/assets/figma/imgGroup1.svg";
-export const img = "/assets/figma/img.svg";
-export const imgDoodle = "/assets/figma/imgDoodle.svg";
-export const imgDoodle1 = "/assets/figma/imgDoodle1.svg";
-export const imgGroup2 = "/assets/figma/imgGroup2.svg";
-export const imgGroup3 = "/assets/figma/imgGroup3.svg";
-export const imgMapTanzaniaSilhouette =
-  "/assets/figma/imgMapTanzaniaSilhouette.svg";
-export const imgMapInternalLines = "/assets/figma/imgMapInternalLines.svg";
-export const imgRouteDottedLine = "/assets/figma/imgRouteDottedLine.svg";
-export const imgRoutePoint = "/assets/figma/imgRoutePoint.svg";
-export const imgRoutePoint1 = "/assets/figma/imgRoutePoint1.svg";
-export const imgRoutePoint2 = "/assets/figma/imgRoutePoint2.svg";
-export const imgRoutePoint3 = "/assets/figma/imgRoutePoint3.svg";
-export const imgRoutePoint4 = "/assets/figma/imgRoutePoint4.svg";
-export const imgRoutePoint5 = "/assets/figma/imgRoutePoint5.svg";
-export const imgDoodleGiraffeDeepGreen =
-  "/assets/figma/imgDoodleGiraffeDeepGreen.svg";
-export const imgDoodleElephantDeepGreen =
-  "/assets/figma/imgDoodleElephantDeepGreen.svg";
-export const imgDoodleMountainDeepGreen =
-  "/assets/figma/imgDoodleMountainDeepGreen.svg";
-export const imgDoodlePalmDeepGreen =
-  "/assets/figma/imgDoodlePalmDeepGreen.svg";
-export const imgDoodleAcaciaLeft = "/assets/figma/imgDoodleAcaciaLeft.svg";
-export const imgDoodleAcaciaRightTop =
-  "/assets/figma/imgDoodleAcaciaRightTop.svg";
-export const imgDoodleAcaciaRightBottom =
-  "/assets/figma/imgDoodleAcaciaRightBottom.svg";
-export const imgDoodleBirdsDeepGreen =
-  "/assets/figma/imgDoodleBirdsDeepGreen.svg";
-export const imgDecorationOceanWaveSkyBlueBack =
-  "/assets/figma/imgDecorationOceanWaveSkyBlueBack.svg";
-export const imgDecorationOceanWaveSkyBlueFront =
-  "/assets/figma/imgDecorationOceanWaveSkyBlueFront.svg";
-export const imgDecorationHandwrittenUnderlineSkyBlue =
-  "/assets/figma/imgDecorationHandwrittenUnderlineSkyBlue.svg";
-export const imgDoodleZebra = "/assets/figma/imgDoodleZebra.svg";
-export const imgDoodleElephant = "/assets/figma/imgDoodleElephant.svg";
-export const imgDoodleMountain = "/assets/figma/imgDoodleMountain.svg";
-export const imgDoodleMountain1 = "/assets/figma/imgDoodleMountain1.svg";
-export const imgDoodlePalm = "/assets/figma/imgDoodlePalm.svg";
-export const imgDecorationRouteArrowNotePath1 =
-  "/assets/figma/imgDecorationRouteArrowNotePath1.svg";
-export const imgAfricaCupOutlineGeometry =
-  "/assets/figma/imgAfricaCupOutlineGeometry.svg";
-export const imgEditorial = "/assets/figma/imgEditorial.svg";
-export const img5 = "/assets/figma/img5.svg";
+export const imgGroup = paletteAsset("/assets/figma/imgGroup.svg");
+export const imgGroup1 = paletteAsset("/assets/figma/imgGroup1.svg");
+export const img = paletteAsset("/assets/figma/img.svg");
+export const imgDoodle = paletteAsset("/assets/figma/imgDoodle.svg");
+export const imgDoodle1 = paletteAsset("/assets/figma/imgDoodle1.svg");
+export const imgGroup2 = paletteAsset("/assets/figma/imgGroup2.svg");
+export const imgGroup3 = paletteAsset("/assets/figma/imgGroup3.svg");
+export const imgMapTanzaniaSilhouette = paletteAsset(
+  "/assets/figma/imgMapTanzaniaSilhouette.svg",
+);
+export const imgMapInternalLines = paletteAsset(
+  "/assets/figma/imgMapInternalLines.svg",
+);
+export const imgRouteDottedLine = paletteAsset(
+  "/assets/figma/imgRouteDottedLine.svg",
+);
+export const imgRoutePoint = paletteAsset("/assets/figma/imgRoutePoint.svg");
+export const imgRoutePoint1 = paletteAsset("/assets/figma/imgRoutePoint1.svg");
+export const imgRoutePoint2 = paletteAsset("/assets/figma/imgRoutePoint2.svg");
+export const imgRoutePoint3 = paletteAsset("/assets/figma/imgRoutePoint3.svg");
+export const imgRoutePoint4 = paletteAsset("/assets/figma/imgRoutePoint4.svg");
+export const imgRoutePoint5 = paletteAsset("/assets/figma/imgRoutePoint5.svg");
+export const imgDoodleGiraffeDeepGreen = paletteAsset(
+  "/assets/figma/imgDoodleGiraffeDeepGreen.svg",
+);
+export const imgDoodleElephantDeepGreen = paletteAsset(
+  "/assets/figma/imgDoodleElephantDeepGreen.svg",
+);
+export const imgDoodleMountainDeepGreen = paletteAsset(
+  "/assets/figma/imgDoodleMountainDeepGreen.svg",
+);
+export const imgDoodlePalmDeepGreen = paletteAsset(
+  "/assets/figma/imgDoodlePalmDeepGreen.svg",
+);
+export const imgDoodleAcaciaLeft = paletteAsset(
+  "/assets/figma/imgDoodleAcaciaLeft.svg",
+);
+export const imgDoodleAcaciaRightTop = paletteAsset(
+  "/assets/figma/imgDoodleAcaciaRightTop.svg",
+);
+export const imgDoodleAcaciaRightBottom = paletteAsset(
+  "/assets/figma/imgDoodleAcaciaRightBottom.svg",
+);
+export const imgDoodleBirdsDeepGreen = paletteAsset(
+  "/assets/figma/imgDoodleBirdsDeepGreen.svg",
+);
+export const imgDecorationOceanWaveSkyBlueBack = paletteAsset(
+  "/assets/figma/imgDecorationOceanWaveSkyBlueBack.svg",
+);
+export const imgDecorationOceanWaveSkyBlueFront = paletteAsset(
+  "/assets/figma/imgDecorationOceanWaveSkyBlueFront.svg",
+);
+export const imgDecorationHandwrittenUnderlineSkyBlue = paletteAsset(
+  "/assets/figma/imgDecorationHandwrittenUnderlineSkyBlue.svg",
+);
+export const imgDoodleZebra = paletteAsset("/assets/figma/imgDoodleZebra.svg");
+export const imgDoodleElephant = paletteAsset(
+  "/assets/figma/imgDoodleElephant.svg",
+);
+export const imgDoodleMountain = paletteAsset(
+  "/assets/figma/imgDoodleMountain.svg",
+);
+export const imgDoodleMountain1 = paletteAsset(
+  "/assets/figma/imgDoodleMountain1.svg",
+);
+export const imgDoodlePalm = paletteAsset("/assets/figma/imgDoodlePalm.svg");
+export const imgDecorationRouteArrowNotePath1 = paletteAsset(
+  "/assets/figma/imgDecorationRouteArrowNotePath1.svg",
+);
+export const imgAfricaCupOutlineGeometry = paletteAsset(
+  "/assets/figma/imgAfricaCupOutlineGeometry.svg",
+);
+export const imgEditorial = paletteAsset("/assets/figma/imgEditorial.svg");
+export const img5 = paletteAsset("/assets/figma/img5.svg");

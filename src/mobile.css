@@ -8,8 +8,8 @@
   height: 100svh;
   min-height: 650px;
   position: relative;
-  color: #fff6e8;
-  background: #0e3e38;
+  color: var(--sva-on-dark);
+  background: var(--sva-primary);
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -40,15 +40,20 @@
 .mobile-hero-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #0e3e381a, #0e3e381a 35%, #0e3e38e6);
+  background: linear-gradient(
+    180deg,
+    var(--sva-primary-a10),
+    var(--sva-primary-a10) 35%,
+    var(--sva-primary-a90)
+  );
 }
 .mobile-hero-cta {
   position: relative;
   align-self: flex-start;
   padding: 17px 25px;
   border-radius: 40px;
-  background: #fff6e8;
-  color: #0e3e38;
+  background: var(--sva-paper);
+  color: var(--sva-primary);
   font-weight: 600;
   margin-bottom: 24px;
 }
@@ -71,8 +76,8 @@
 }
 
 .mobile-copy button {
-  background: #0e3e38;
-  color: #fff6e8;
+  background: var(--sva-primary);
+  color: var(--sva-on-dark);
   border-radius: 40px;
   padding: 16px 24px;
   margin-block: 12px;

@@ -1,5 +1,5 @@
 .photo-stories {
-  background: #0e3e38;
+  background: var(--sva-primary);
 }
 .photo-stories .motion-canvas > div {
   height: 900px;
@@ -16,8 +16,8 @@
   transform: translate(-50%, -50%) scale(var(--motion-scale)) !important;
 }
 .photo-stories .mobile-editorial {
-  background: #0e3e38;
-  color: #fff6e8;
+  background: var(--sva-primary);
+  color: var(--sva-on-dark);
 }
 @media (max-width: 767px) {
   .photo-stories .mobile-editorial {

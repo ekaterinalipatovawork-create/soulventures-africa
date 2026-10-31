@@ -31,8 +31,8 @@
   height: auto !important;
 }
 .hotel-gallery {
-  background: #59b5ee;
-  color: #0e3e38;
+  background: var(--sva-surface-accent);
+  color: var(--sva-primary);
 }
 .hotel-heading {
   position: absolute;
@@ -42,7 +42,7 @@
 }
 .hotel-heading h2 {
   font: 700 100px/0.98 Oswald;
-  color: #fff6e8;
+  color: var(--sva-on-dark);
   letter-spacing: -2px;
 }
 .hotel-heading p {
@@ -70,7 +70,7 @@
   background: white;
   padding: 12px 12px 18px;
   width: 870px;
-  box-shadow: 0 12px 24px #17334a16;
+  box-shadow: 0 12px 24px var(--sva-ink-a09);
   will-change: transform, opacity;
 }
 .hotel-film-card img {
@@ -87,8 +87,8 @@
   position: absolute;
   left: 64px;
   top: 610px;
-  background: #0e3e38;
-  color: #fff6e8;
+  background: var(--sva-primary);
+  color: var(--sva-on-dark);
   border-radius: 30px;
   width: 300px;
   height: 58px;

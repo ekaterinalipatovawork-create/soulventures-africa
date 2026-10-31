@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { Viewport } from "./Viewport";
 import { App } from "./App";
 import "./fonts.css";
+import "./palettes.css";
 import "./design.css";
 import "./styles.css";
 import "./motion.css";

@@ -1,6 +1,6 @@
 .first-africa {
-  background: #0e3e38;
-  color: #fff6e8;
+  background: var(--sva-primary);
+  color: var(--sva-on-dark);
 }
 .first-title {
   position: absolute;
@@ -10,7 +10,7 @@
   letter-spacing: -1.35px;
 }
 .first-title span {
-  color: #59b5ee;
+  color: var(--sva-accent);
 }
 .first-step-copy {
   position: absolute;
@@ -60,8 +60,8 @@
   position: absolute;
   left: 50px;
   top: 710px;
-  background: #fff6e8;
-  color: #0e3e38;
+  background: var(--sva-paper);
+  color: var(--sva-primary);
   border-radius: 30px;
   padding: 18px 30px;
   font: 700 22px/1.1 Oswald;

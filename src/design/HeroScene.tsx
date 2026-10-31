@@ -28,7 +28,7 @@ export function HeroScene() {
         data-node-id="22:213"
         style={{
           backgroundImage:
-            "linear-gradient(180deg, rgba(6, 61, 43, 0.4) 0%, rgba(6, 61, 43, 0) 35%, rgba(6, 61, 43, 0.85) 100%, rgba(6, 61, 43, 0.85) 100%)",
+            "linear-gradient(180deg, rgba(var(--sva-forest-rgb), 0.4) 0%, rgba(var(--sva-forest-rgb), 0) 35%, rgba(var(--sva-forest-rgb), 0.85) 100%, rgba(var(--sva-forest-rgb), 0.85) 100%)",
         }}
         data-name="Затемнение для читаемости"
       />
