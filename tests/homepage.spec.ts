@@ -17,6 +17,22 @@ async function phase(page: Page, id: string, progress: number) {
     );
   }, progress);
   await page.waitForTimeout(250);
+  await expect
+    .poll(async () => {
+      const actual = Number(await locator.getAttribute("data-progress"));
+      if (Math.abs(actual - progress) > 0.02) {
+        await locator.evaluate((el, p) => {
+          const e = el as HTMLElement;
+          scrollTo(
+            0,
+            Number(e.dataset.pinStart) +
+              (Number(e.dataset.pinEnd) - Number(e.dataset.pinStart)) * p,
+          );
+        }, progress);
+      }
+      return Math.abs(actual - progress);
+    })
+    .toBeLessThan(0.02);
 }
 async function alphas(page: Page, selector: string) {
   return page
@@ -180,7 +196,7 @@ test("source assets exist locally and deep-link resize restores pinned state", a
   await page.waitForTimeout(300);
   await expect(page.locator(".pin-spacer")).toHaveCount(4);
   await phase(page, "hotels", 0.5);
-  await expect(page.locator("#hotels img")).toHaveCount(4);
+  await expect(page.locator("#hotels img")).toHaveCount(10);
   await page.locator("#hotels img").evaluateAll((images) =>
     Promise.all(
       images.map((image: HTMLImageElement) => {
@@ -202,4 +218,38 @@ test("source assets exist locally and deep-link resize restores pinned state", a
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.waitForTimeout(300);
   await expect(page.locator(".pin-spacer")).toHaveCount(4);
+});
+
+test("hotels: all ten Figma photos rise vertically over the previous photograph", async ({
+  page,
+}) => {
+  await ready(page);
+  const photos = page.locator("#hotels .hotel-film-card");
+  await expect(photos).toHaveCount(10);
+  await expect(
+    page.locator('#hotels [data-source-node="I91:321;92:317"]'),
+  ).toHaveCount(1);
+  await phase(page, "hotels", 0.06);
+  const position = (index: number) =>
+    photos.nth(index).evaluate((el) => {
+      const m = new DOMMatrix(getComputedStyle(el).transform);
+      return { x: m.m41, y: m.m42, z: Number(getComputedStyle(el).zIndex) };
+    });
+  const incoming = await position(1);
+  await phase(page, "hotels", 0.1);
+  const overlapping = await position(1);
+  expect(overlapping.y).toBeLessThan(incoming.y - 200);
+  expect(Math.abs(overlapping.x - incoming.x)).toBeLessThan(1);
+  expect(overlapping.z).toBeGreaterThan((await position(0)).z);
+  expect((await position(0)).x).toBeGreaterThan(440);
+  await phase(page, "hotels", 0.98);
+  expect((await position(9)).y).toBeLessThan(300);
+  await phase(page, "hotels", 0.01);
+  expect((await position(1)).y).toBeGreaterThan(1000);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator(".hotel-gallery")).toHaveClass(/is-static/);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(
+    390,
+  );
+  await expect(page.locator("#hotels img")).toHaveCount(10);
 });

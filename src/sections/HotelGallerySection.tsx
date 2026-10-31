@@ -1,12 +1,7 @@
 import { useRef } from "react";
 import { gsap, pinConfig, useScrollScene } from "../animation/useScrollScene";
 import { MotionCanvas } from "../MotionCanvas";
-const hotels = [
-  { name: "Lemala", src: "/assets/hotels/lemala.webp" },
-  { name: "Melia", src: "/assets/hotels/melia.webp" },
-  { name: "AndBeyond", src: "/assets/hotels/andbeyond.webp" },
-  { name: "Four Seasons", src: "/assets/hotels/four-seasons.webp" },
-];
+import { hotelPhotos as hotels } from "./hotel-photos";
 export function HotelGallerySection() {
   const ref = useRef<HTMLElement>(null);
   useScrollScene(ref, ({ desktop, motion }) => {
@@ -14,56 +9,46 @@ export function HotelGallerySection() {
     section.classList.toggle("is-static", !desktop || !motion);
     if (!desktop || !motion) return;
     const cards = gsap.utils.toArray<HTMLElement>(".hotel-film-card", section);
-    cards.forEach((card, i) =>
-      gsap.set(card, {
-        x: i === 0 ? 64 : 790,
-        y: i === 0 ? 260 : i === 1 ? 290 : 1000,
-        rotation: i === 0 ? -2 : 3,
-        autoAlpha: i < 2 ? 1 : 0,
-      }),
-    );
-    const tl = gsap.timeline({
-      scrollTrigger: pinConfig(
-        section,
-        section.querySelector(".pin-stage")!,
-        "hotels",
-        3,
-      ),
+    // A photograph holds in place while the next rises over it, as in the
+    // restaurant spread in the supplied ibicheskiy reference. No side exit.
+    const pose = (i: number) => ({
+      x: 468 + (i % 2 ? -8 : 8),
+      y: 278 + (i % 2 ? 8 : 0),
+      rotation: i % 2 ? 2 : -2.5,
     });
-    tl.to({}, { duration: 0.5 });
-    for (let i = 0; i < cards.length - 2; i++) {
-      const at = 0.5 + i;
+    cards.forEach((card, i) => {
+      gsap.set(card, {
+        ...pose(i),
+        y: i === 0 ? pose(i).y : 1050,
+        zIndex: i + 1,
+      });
+    });
+    const config = pinConfig(
+      section,
+      section.querySelector(".pin-stage")!,
+      "hotels",
+      hotels.length * 0.65,
+    );
+    const tl = gsap.timeline({ scrollTrigger: config });
+    tl.to({}, { duration: 0.4 });
+    for (let i = 1; i < cards.length; i++) {
+      const at = 0.4 + (i - 1) * 0.95;
       tl.to(
-        cards[i],
+        cards[i - 1],
         {
-          x: -650,
-          y: 100,
-          rotation: -8,
-          autoAlpha: 0,
-          duration: 1,
+          y: 258,
+          x: 460,
+          scale: 0.97,
+          rotation: i % 2 ? -4 : 4,
+          duration: 0.75,
           ease: "none",
         },
         at,
       )
-        .to(
-          cards[i + 1],
-          { x: 64, y: 260, rotation: -2, duration: 1, ease: "none" },
-          at,
-        )
-        .to(
-          cards[i + 2],
-          {
-            x: 790,
-            y: 290,
-            rotation: 3,
-            autoAlpha: 1,
-            duration: 1,
-            ease: "none",
-          },
-          at,
-        );
+        .to(cards[i], { ...pose(i), duration: 0.75, ease: "none" }, at)
+        .to({}, { duration: 0.2 });
     }
-    tl.to({}, { duration: 0.5 });
+    tl.to({}, { duration: 0.35 });
   });
   return (
     <section
@@ -86,12 +71,17 @@ export function HotelGallerySection() {
           </p>
           <div className="hotel-film">
             {hotels.map((h, i) => (
-              <figure key={h.src} className="hotel-film-card" data-photo={i}>
+              <figure
+                key={h.src}
+                className="hotel-film-card"
+                data-photo={i}
+                data-source-node={h.node}
+              >
                 <img
                   src={h.src}
-                  alt={"Сеть отелей " + h.name}
-                  width="960"
-                  height="1200"
+                  alt={h.alt}
+                  width={h.dimensions[0]}
+                  height={h.dimensions[1]}
                   loading="lazy"
                 />
                 <figcaption>{h.name}</figcaption>

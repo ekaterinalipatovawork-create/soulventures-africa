@@ -37,9 +37,8 @@ export function useMediaRefresh() {
       }, 120);
     };
     let anchorTimer: ReturnType<typeof setTimeout>;
-    document.fonts.ready.then(() => {
-      if (!live) return;
-      refresh();
+    const alignHash = () => {
+      clearTimeout(anchorTimer);
       // Native hash jumps can happen before pin spacers have their final height.
       if (location.hash)
         anchorTimer = setTimeout(() => {
@@ -57,7 +56,13 @@ export function useMediaRefresh() {
             pin ? pin.start : target.getBoundingClientRect().top + scrollY,
           );
         }, 250);
+    };
+    document.fonts.ready.then(() => {
+      if (!live) return;
+      refresh();
+      alignHash();
     });
+    addEventListener("hashchange", alignHash);
     document.addEventListener("load", refresh, true);
     addEventListener("pageshow", refresh);
     refresh();
@@ -65,6 +70,7 @@ export function useMediaRefresh() {
       live = false;
       clearTimeout(timer);
       clearTimeout(anchorTimer);
+      removeEventListener("hashchange", alignHash);
       document.removeEventListener("load", refresh, true);
       removeEventListener("pageshow", refresh);
     };
