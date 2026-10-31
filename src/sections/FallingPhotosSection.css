@@ -1,0 +1,95 @@
+.falling-photos {
+  position: relative;
+  display: grid;
+  grid-template-columns: 31% 1fr;
+  gap: 2%;
+  padding: 90px 4% 110px;
+  background: #17334a;
+  color: #fff6e8;
+  overflow: clip;
+}
+.falling-photos-heading {
+  position: relative;
+  z-index: 1;
+}
+.falling-photos h2 {
+  position: sticky;
+  top: 100px;
+  font:
+    700 clamp(34px, 4.1vw, 72px)/1.08 Oswald,
+    sans-serif;
+  letter-spacing: -0.035em;
+}
+.falling-photos h2 span {
+  color: #59b5ee;
+}
+.falling-photos-rows {
+  min-width: 0;
+}
+.falling-photo-row {
+  position: relative;
+  padding-bottom: 85px;
+}
+.falling-photo-wide {
+  margin-left: 13%;
+  width: 87%;
+  border: 3px solid #fff;
+  background: #fff;
+}
+.falling-photo-wide img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.56;
+  object-fit: cover;
+}
+.falling-photo-square img {
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+.falling-photo-portrait {
+  position: absolute;
+  left: 2%;
+  top: 36px;
+  width: 29%;
+  border: 3px solid #fff;
+  background: #fff;
+  will-change: transform;
+}
+.falling-photo-portrait img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+@media (max-width: 767px) {
+  .falling-photos {
+    display: block;
+    padding: 48px 18px 60px;
+  }
+  .falling-photos-heading {
+    margin-bottom: 44px;
+  }
+  .falling-photos h2 {
+    position: relative;
+    top: auto;
+    font-size: clamp(34px, 8.8vw, 60px);
+  }
+  .falling-photo-row {
+    padding-bottom: 90px;
+  }
+  .falling-photo-wide {
+    margin-left: 23%;
+    width: 77%;
+    border-width: 2px;
+  }
+  .falling-photo-portrait {
+    left: 0;
+    top: 24px;
+    width: 35%;
+    border-width: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .falling-photo-portrait {
+    will-change: auto;
+  }
+}

@@ -17,6 +17,7 @@ import { FirstTimeAfricaSection } from "./sections/FirstTimeAfricaSection";
 import { PhotoChronicleSection } from "./sections/PhotoChronicleSection";
 import { PhotoStoriesSection } from "./sections/PhotoStoriesSection";
 import { HotelGallerySection } from "./sections/HotelGallerySection";
+import { FallingPhotosSection } from "./sections/FallingPhotosSection";
 import { useMediaRefresh } from "./animation/useScrollScene";
 export function App() {
   useMediaRefresh();
@@ -42,6 +43,7 @@ export function App() {
         <PhotoStoriesSection />
         <ReviewsSection />
         <ClosingSection />
+        <FallingPhotosSection />
       </main>
       <FooterSection />
       <UI />

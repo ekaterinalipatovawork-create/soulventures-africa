@@ -49,3 +49,9 @@ The request dialog reuses the existing Bitrix24 form configuration. External for
 Hotel follow-up: updated from the latest Figma source and the user-selected restaurant reference. Original source image proportions are retained on mobile, with no horizontal page overflow.
 
 Dolphin transition checks verify the exact source replacements, nine separate gallery items, silent autoplay, fullscreen geometry, video DOM identity, no additional loadstart event, ongoing playback, next-section overlay, reverse restoration, release into the following content, mobile width and reduced-motion cleanup. The new source clip is optimized from approximately 80 MB to 6.8 MB without removing footage.
+
+## Final falling-photo spread
+
+`FallingPhotosSection` follows the existing final CTA and precedes the footer. All five images are exact exports from `342:225` (Grouptours impressions); per-image node IDs remain in the DOM and export URLs are recorded in `reference/falling-photos-source.json`. Three large photographs are paired with two smaller portrait prints. Scroll-driven translation and a light tilt hold the portrait prints as the next large frame moves underneath, following the referenced Madagascar/Mauritius route-selection spread. No photos, tour cards, prices or dates from the reference site are reused. The background and typography use the existing Soul Ventures system.
+
+The two new ScrollTriggers have scrubbed, reversible progress and no additional page pin or wheel interception. Touch screens use a smaller travel distance; reduced motion leaves static photos. Tests cover section order after the final CTA, all five node IDs and image decoding, forward/reverse translation, mobile width, reduced-motion cleanup and footer access in Chrome and WebKit.
