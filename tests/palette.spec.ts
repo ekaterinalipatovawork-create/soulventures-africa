@@ -83,8 +83,14 @@ test("palette copy: desktop geometry, text and media match while colors are diff
   );
   await expect(copy.locator(".first-title span")).toHaveCSS(
     "color",
-    "rgb(174, 49, 23)",
+    "rgb(255, 255, 255)",
   );
+  for (const selector of [".d0077", ".d0091", ".d0322"]) {
+    for (const heading of await copy.locator(selector).all()) {
+      await expect(heading).toHaveCSS("color", "rgb(255, 255, 255)");
+    }
+  }
+  await expect(copy.locator(".d0134")).toHaveCSS("color", "rgb(174, 49, 23)");
   await copy.locator("#intro img").evaluateAll((es) =>
     Promise.all(
       es.map((e: HTMLImageElement) => {

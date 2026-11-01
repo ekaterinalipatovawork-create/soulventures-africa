@@ -70,3 +70,8 @@
   --sva-on-dark: #ffffff;
   --sva-on-dark-alt: #ffffff;
 }
+
+/* Keep headings readable on the warm version's brown sections. */
+:root[data-palette="heritage"] :is(.d0077, .d0091, .d0322, .first-title span) {
+  color: #ffffff;
+}
