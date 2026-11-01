@@ -1,0 +1,99 @@
+{
+  "source": "https://soulventuresafrica.ru/",
+  "entry": "/heritage/",
+  "colors": {
+    "paper-alt": {
+      "original": "#fff7e6",
+      "heritage": "#f5f4f3"
+    },
+    "on-dark-alt": {
+      "original": "#fff7e6",
+      "heritage": "#ffffff"
+    },
+    "primary": {
+      "original": "#0e3e38",
+      "heritage": "#79593d"
+    },
+    "ink": {
+      "original": "#17334a",
+      "heritage": "#605e5e"
+    },
+    "paper": {
+      "original": "#fff6e8",
+      "heritage": "#f5f4f3"
+    },
+    "on-dark": {
+      "original": "#fff6e8",
+      "heritage": "#ffffff"
+    },
+    "surface-accent": {
+      "original": "#59b5ee",
+      "heritage": "#f5f4f3"
+    },
+    "accent": {
+      "original": "#59b5ee",
+      "heritage": "#ae3117"
+    },
+    "surface-secondary": {
+      "original": "#48c2c8",
+      "heritage": "#ffffff"
+    },
+    "secondary": {
+      "original": "#48c2c8",
+      "heritage": "#815f41"
+    },
+    "sand": {
+      "original": "#e7d3af",
+      "heritage": "#f7f5f3"
+    },
+    "panel": {
+      "original": "#071b3a",
+      "heritage": "#79593d"
+    },
+    "forest": {
+      "original": "#063d2b",
+      "heritage": "#79593d"
+    },
+    "deep-ink": {
+      "original": "#142018",
+      "heritage": "#605e5e"
+    },
+    "sea-ink": {
+      "original": "#082e47",
+      "heritage": "#605e5e"
+    },
+    "yellow": {
+      "original": "#ffc857",
+      "heritage": "#ae3117"
+    },
+    "primary-a10": {
+      "original": "#0e3e381a",
+      "heritage": "#79593d1a"
+    },
+    "primary-a90": {
+      "original": "#0e3e38e6",
+      "heritage": "#79593de6"
+    },
+    "ink-a70": {
+      "original": "#17334ab3",
+      "heritage": "#605e5eb3"
+    },
+    "ink-a09": {
+      "original": "#17334a16",
+      "heritage": "#605e5e16"
+    },
+    "paper-a24": {
+      "original": "#fff6e83d",
+      "heritage": "#f5f4f33d"
+    },
+    "forest-rgb": {
+      "original": "6, 61, 43",
+      "heritage": "121, 89, 61"
+    },
+    "shadow-rgb": {
+      "original": "20, 32, 24",
+      "heritage": "96, 94, 94"
+    }
+  },
+  "svgFiles": 36
+}

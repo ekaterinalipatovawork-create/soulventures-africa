@@ -1,0 +1,102 @@
+.lodge-album {
+  position: relative;
+  background: var(--sva-primary);
+  padding: 72px 3.888889vw;
+}
+.lodge-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.666667vw;
+}
+.lodge-lane {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.666667vw;
+  will-change: transform;
+}
+.lodge-shot {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.lodge-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.lodge-shot video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 767px) {
+  .lodge-album {
+    padding: 36px 16px;
+  }
+  .lodge-columns {
+    gap: 12px;
+  }
+  .lodge-lane {
+    position: relative;
+    gap: 12px;
+  }
+}
+@media (max-width: 480px) {
+  .lodge-columns {
+    grid-template-columns: 1fr;
+  }
+  .lodge-lane {
+    position: relative;
+    will-change: auto;
+  }
+  .lodge-slot,
+  .lodge-video-slot {
+    max-height: 72svh;
+  }
+  .lodge-shot img,
+  .lodge-shot video {
+    object-fit: cover;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lodge-lane {
+    position: relative;
+    will-change: auto;
+  }
+}
+
+.lodge-journey {
+  position: relative;
+  background: var(--sva-primary);
+}
+.lodge-pin-stage {
+  position: relative;
+  overflow: clip;
+}
+.lodge-slot,
+.lodge-video-slot {
+  position: relative;
+  width: 100%;
+  flex: none;
+}
+.lodge-shot--hero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 20;
+}
+.has-film-transition .lodge-next {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100svh;
+  z-index: 10;
+  background: var(--sva-panel);
+}

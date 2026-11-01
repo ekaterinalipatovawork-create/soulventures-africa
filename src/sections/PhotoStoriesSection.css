@@ -1,0 +1,35 @@
+.photo-stories {
+  background: var(--sva-primary);
+}
+.photo-stories .motion-canvas > div {
+  height: 900px;
+}
+.photo-stories.is-static .pin-stage {
+  height: 62.5vw;
+}
+.photo-stories.is-static .motion-canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1440px !important;
+  height: 900px !important;
+  transform: translate(-50%, -50%) scale(var(--motion-scale)) !important;
+}
+.photo-stories .mobile-editorial {
+  background: var(--sva-primary);
+  color: var(--sva-on-dark);
+}
+@media (max-width: 767px) {
+  .photo-stories .mobile-editorial {
+    padding: 42px 22px;
+  }
+  .photo-stories .mobile-editorial img {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-stories [data-node-id] {
+    will-change: auto;
+  }
+}

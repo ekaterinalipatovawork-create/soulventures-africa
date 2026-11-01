@@ -1,0 +1,30 @@
+{
+  "frame": "339:244",
+  "reference": "https://ibicheskiy.ru/uzbekistan",
+  "added": [
+    {
+      "file": "/assets/hotels/pool-giraffe.webp",
+      "source": "https://www.figma.com/api/mcp/asset/7d82d131-1f62-4eed-91b9-4b86750498bf.png"
+    },
+    {
+      "file": "/assets/hotels/under-canvas.webp",
+      "source": "https://www.figma.com/api/mcp/asset/6d5055a5-60f7-4b03-afc9-daedca599fd8.png"
+    },
+    {
+      "file": "/assets/hotels/serval.webp",
+      "source": "https://www.figma.com/api/mcp/asset/d4de77c0-51d9-4a26-810b-543b299aa5e4.png"
+    },
+    {
+      "file": "/assets/hotels/mnemba.webp",
+      "source": "https://www.figma.com/api/mcp/asset/39dee136-dacc-4481-8842-f2607f9af520.png"
+    },
+    {
+      "file": "/assets/hotels/ngorongoro.webp",
+      "source": "https://www.figma.com/api/mcp/asset/fbd73f43-7db2-4b23-84e6-09cfaac64627.png"
+    },
+    {
+      "file": "/assets/hotels/four-seasons-serengeti.webp",
+      "source": "https://www.figma.com/api/mcp/asset/d69bf0f9-616f-4d45-9917-032c49fc0170.png"
+    }
+  ]
+}

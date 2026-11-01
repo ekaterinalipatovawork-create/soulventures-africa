@@ -1,0 +1,86 @@
+[
+  {
+    "component": "HeroScene",
+    "nodeId": "22:211"
+  },
+  {
+    "component": "AlbumIntroScene",
+    "nodeId": "22:234"
+  },
+  {
+    "component": "CinematicScene",
+    "nodeId": "22:254"
+  },
+  {
+    "component": "ElephantScene",
+    "nodeId": "22:301"
+  },
+  {
+    "component": "HotelScene",
+    "nodeId": "22:342"
+  },
+  {
+    "component": "LooseHotelScene",
+    "nodeId": "91:321"
+  },
+  {
+    "component": "AudienceScene",
+    "nodeId": "101:312"
+  },
+  {
+    "component": "MapScene",
+    "nodeId": "116:312"
+  },
+  {
+    "component": "LodgeScene",
+    "nodeId": "148:722"
+  },
+  {
+    "component": "TrustScene",
+    "nodeId": "159:304"
+  },
+  {
+    "component": "FirstScene1",
+    "nodeId": "203:304"
+  },
+  {
+    "component": "FirstScene2",
+    "nodeId": "350:212"
+  },
+  {
+    "component": "FirstScene3",
+    "nodeId": "350:239"
+  },
+  {
+    "component": "FirstScene4",
+    "nodeId": "350:263"
+  },
+  {
+    "component": "ChronicleScene",
+    "nodeId": "314:211"
+  },
+  {
+    "component": "FilmScene",
+    "nodeId": "210:307"
+  },
+  {
+    "component": "PhotoStoriesScene",
+    "nodeId": "255:2"
+  },
+  {
+    "component": "ReviewsScene",
+    "nodeId": "22:381"
+  },
+  {
+    "component": "ClosingScene",
+    "nodeId": "219:688"
+  },
+  {
+    "component": "FooterScene",
+    "nodeId": "219:697"
+  },
+  {
+    "component": "LooseSingitaScene",
+    "nodeId": "234:996"
+  }
+]

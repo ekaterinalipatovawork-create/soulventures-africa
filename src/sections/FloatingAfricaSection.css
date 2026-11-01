@@ -1,0 +1,115 @@
+.floating-africa {
+  position: relative;
+  height: 100svh;
+  min-height: 680px;
+  max-height: 1100px;
+  overflow: clip;
+  isolation: isolate;
+  background: linear-gradient(
+    180deg,
+    var(--sva-surface-accent) 0%,
+    var(--sva-surface-accent) 66%,
+    var(--sva-surface-secondary) 100%
+  );
+  color: var(--sva-on-dark);
+}
+.floating-africa-word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: 96%;
+  text-align: center;
+  font:
+    700 26vw/0.9 Oswald,
+    sans-serif;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+  z-index: 0;
+  pointer-events: none;
+}
+.floating-africa-window {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 62%;
+  transform: translateX(-50%);
+  width: 32%;
+  max-width: 480px;
+  z-index: 1;
+}
+.floating-africa-track {
+  width: 100%;
+  animation: africa-float-up 48s linear infinite;
+  animation-play-state: paused;
+  will-change: transform;
+}
+.is-running .floating-africa-track {
+  animation-play-state: running;
+}
+.floating-africa-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 24px;
+}
+.floating-africa-photo {
+  margin: 0;
+  width: 100%;
+  flex: none;
+}
+.floating-africa-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+@keyframes africa-float-up {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -33.3333333333%, 0);
+  }
+}
+@media (max-width: 767px) {
+  .floating-africa {
+    min-height: 560px;
+    height: 85svh;
+  }
+  .floating-africa-window {
+    width: 44%;
+    left: 64%;
+  }
+  .floating-africa-group {
+    gap: 14px;
+    padding-bottom: 14px;
+  }
+  .floating-africa-track {
+    animation-duration: 40s;
+  }
+  .floating-africa-word {
+    font-size: 26vw;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-africa {
+    height: auto;
+    max-height: none;
+    min-height: 0;
+    padding: 48px 0;
+  }
+  .floating-africa-window {
+    position: relative;
+    top: auto;
+    bottom: auto;
+  }
+  .floating-africa-track {
+    animation: none;
+    will-change: auto;
+  }
+  .floating-africa-group[aria-hidden="true"] {
+    display: none;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "frame": "342:225",
+  "name": "02 / Grouptours / Впечатления, которые запомнятся на всю жизнь",
+  "reference": "https://ibicheskiy.ru/madagascar-mauritius#send",
+  "images": [
+    {
+      "source": "https://www.figma.com/api/mcp/asset/4032824e-2a11-4cf5-9a4f-a95f90cde067.png",
+      "local": "/assets/falling/gt-exp-1.webp"
+    },
+    {
+      "source": "https://www.figma.com/api/mcp/asset/644ba0ba-513a-4271-a5e9-0c5d0d626ebd.png",
+      "local": "/assets/falling/gt-exp-3.webp"
+    },
+    {
+      "source": "https://www.figma.com/api/mcp/asset/4fef0ba8-a578-46e5-a9f5-310fa9d386a4.png",
+      "local": "/assets/falling/gt-exp-4.webp"
+    },
+    {
+      "source": "https://www.figma.com/api/mcp/asset/21f1ec78-2f6a-44d9-9a2b-de130742c8b4.png",
+      "local": "/assets/falling/gt-exp-5.webp"
+    },
+    {
+      "source": "https://www.figma.com/api/mcp/asset/aaa62b0e-03ac-46e5-9686-4e9938869da5.png",
+      "local": "/assets/falling/gt-exp-6.webp"
+    }
+  ]
+}

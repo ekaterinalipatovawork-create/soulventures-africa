@@ -1,0 +1,77 @@
+:root {
+  --sva-paper-alt: #fff7e6;
+  --sva-on-dark-alt: #fff7e6;
+  --sva-primary: #0e3e38;
+  --sva-ink: #17334a;
+  --sva-paper: #fff6e8;
+  --sva-on-dark: #fff6e8;
+  --sva-surface-accent: #59b5ee;
+  --sva-accent: #59b5ee;
+  --sva-surface-secondary: #48c2c8;
+  --sva-secondary: #48c2c8;
+  --sva-sand: #e7d3af;
+  --sva-panel: #071b3a;
+  --sva-forest: #063d2b;
+  --sva-deep-ink: #142018;
+  --sva-sea-ink: #082e47;
+  --sva-yellow: #ffc857;
+  --sva-primary-a10: #0e3e381a;
+  --sva-primary-a90: #0e3e38e6;
+  --sva-ink-a70: #17334ab3;
+  --sva-ink-a09: #17334a16;
+  --sva-paper-a24: #fff6e83d;
+  --sva-forest-rgb: 6, 61, 43;
+  --sva-shadow-rgb: 20, 32, 24;
+}
+
+:root[data-palette="heritage"] {
+  --sva-paper-alt: #f5f4f3;
+  --sva-on-dark-alt: #ffffff;
+  --sva-primary: #79593d;
+  --sva-ink: #605e5e;
+  --sva-paper: #f5f4f3;
+  --sva-on-dark: #ffffff;
+  --sva-surface-accent: #f5f4f3;
+  --sva-accent: #ae3117;
+  --sva-surface-secondary: #ffffff;
+  --sva-secondary: #815f41;
+  --sva-sand: #f7f5f3;
+  --sva-panel: #79593d;
+  --sva-forest: #79593d;
+  --sva-deep-ink: #605e5e;
+  --sva-sea-ink: #605e5e;
+  --sva-yellow: #ae3117;
+  --sva-primary-a10: #79593d1a;
+  --sva-primary-a90: #79593de6;
+  --sva-ink-a70: #605e5eb3;
+  --sva-ink-a09: #605e5e16;
+  --sva-paper-a24: #f5f4f33d;
+  --sva-forest-rgb: 121, 89, 61;
+  --sva-shadow-rgb: 96, 94, 94;
+}
+
+/* The original blue surfaces become light paper in the copy. Only their
+   light foreground token changes; photo frames retain their own paper color. */
+:root[data-palette="heritage"]
+  :is(
+    .d0021,
+    .d0143,
+    .d0402,
+    .hotel-gallery,
+    .floating-africa,
+    .mobile-AlbumIntroScene,
+    .mobile-FilmScene
+  ) {
+  --sva-on-dark: #79593d;
+  --sva-on-dark-alt: #79593d;
+}
+
+:root[data-palette="heritage"] :is(.hotel-cta, .mobile-copy button) {
+  --sva-on-dark: #ffffff;
+  --sva-on-dark-alt: #ffffff;
+}
+
+/* Keep headings readable on the warm version's brown sections. */
+:root[data-palette="heritage"] :is(.d0077, .d0091, .d0322, .first-title span) {
+  color: #ffffff;
+}

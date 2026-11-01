@@ -1,0 +1,12 @@
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    assetsInlineLimit: 0,
+    rollupOptions: {
+      input: { main: "index.html", heritage: "heritage/index.html" },
+    },
+  },
+  server: { port: 5190, host: "127.0.0.1" },
+});

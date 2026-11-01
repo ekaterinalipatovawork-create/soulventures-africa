@@ -1,0 +1,196 @@
+.interactive-section {
+  position: relative;
+  width: 100%;
+}
+.pin-stage {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: clip;
+}
+.motion-canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  isolation: isolate;
+}
+.motion-canvas > div[data-node-id] {
+  width: 1440px;
+}
+.is-static .pin-stage {
+  height: auto;
+  min-height: 0;
+}
+.is-static .motion-canvas {
+  position: relative;
+  left: 0;
+  top: 0;
+  transform: none !important;
+  width: 100% !important;
+  height: auto !important;
+}
+.hotel-gallery {
+  background: var(--sva-surface-accent);
+  color: var(--sva-primary);
+}
+.hotel-heading {
+  position: absolute;
+  left: 48px;
+  top: 35px;
+  width: 1290px;
+}
+.hotel-heading h2 {
+  font: 700 100px/0.98 Oswald;
+  color: var(--sva-on-dark);
+  letter-spacing: -2px;
+}
+.hotel-heading p {
+  font: 700 58px/1.04 Oswald;
+  letter-spacing: -1.45px;
+  margin-top: 16px;
+}
+.hotel-note {
+  position: absolute;
+  left: 64px;
+  top: 345px;
+  width: 320px;
+  rotate: -4deg;
+  font: 400 29px/1.02 Caveat;
+}
+.hotel-film {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.hotel-film-card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: white;
+  padding: 12px 12px 18px;
+  width: 870px;
+  box-shadow: 0 12px 24px var(--sva-ink-a09);
+  will-change: transform, opacity;
+}
+.hotel-film-card img {
+  width: 100%;
+  height: 438px;
+  object-fit: cover;
+  object-position: center;
+}
+.hotel-film-card figcaption {
+  font: 600 24px/1.3 Inter;
+  margin-top: 10px;
+}
+.hotel-cta {
+  position: absolute;
+  left: 64px;
+  top: 610px;
+  background: var(--sva-primary);
+  color: var(--sva-on-dark);
+  border-radius: 30px;
+  width: 300px;
+  height: 58px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.hotel-gallery.is-static {
+  padding: 56px;
+}
+.hotel-gallery.is-static .hotel-heading,
+.hotel-gallery.is-static .hotel-note,
+.hotel-gallery.is-static .hotel-film,
+.hotel-gallery.is-static .hotel-cta {
+  position: relative;
+  inset: auto;
+}
+.hotel-gallery.is-static .hotel-heading {
+  width: 100%;
+}
+.hotel-gallery.is-static .hotel-heading h2 {
+  font-size: clamp(40px, 7vw, 100px);
+}
+.hotel-gallery.is-static .hotel-heading p {
+  font-size: clamp(25px, 4vw, 58px);
+}
+.hotel-gallery.is-static .hotel-note {
+  margin-top: 24px;
+}
+.hotel-gallery.is-static .hotel-film {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin: 40px 0;
+}
+.hotel-gallery.is-static .hotel-film-card {
+  position: relative;
+  width: 100%;
+  box-shadow: none;
+}
+.hotel-gallery.is-static .hotel-film-card img {
+  height: clamp(260px, 40vw, 550px);
+}
+.hotel-gallery.is-static .hotel-cta {
+  display: block;
+}
+@media (max-width: 767px) {
+  .hotel-gallery {
+    padding: 40px 22px;
+  }
+  .hotel-gallery .pin-stage {
+    height: auto;
+  }
+  .hotel-gallery .motion-canvas {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .hotel-gallery .hotel-heading,
+  .hotel-gallery .hotel-note,
+  .hotel-gallery .hotel-film,
+  .hotel-gallery .hotel-cta {
+    position: relative;
+    inset: auto;
+    width: 100%;
+  }
+  .hotel-gallery .hotel-heading h2 {
+    font-size: 43px;
+  }
+  .hotel-gallery .hotel-heading p {
+    font-size: 28px;
+    line-height: 1.1;
+  }
+  .hotel-gallery .hotel-note {
+    margin: 22px 0;
+    font-size: 27px;
+  }
+  .hotel-gallery .hotel-film {
+    display: grid;
+    gap: 24px;
+    margin: 30px 0;
+  }
+  .hotel-gallery .hotel-film-card {
+    position: relative;
+    width: 100%;
+    will-change: auto;
+  }
+  .hotel-gallery .hotel-film-card img {
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+  .hotel-gallery .hotel-cta {
+    height: 56px;
+    max-width: 330px;
+  }
+  .hotel-gallery.is-static {
+    padding: 40px 22px;
+  }
+  .hotel-gallery.is-static .hotel-film {
+    grid-template-columns: 1fr;
+  }
+}
